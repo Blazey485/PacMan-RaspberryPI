@@ -10,3 +10,7 @@ speed
 spise de andre
 
 3 som jager etter bro
+
+TODO
+Musikk
+Karakter design
