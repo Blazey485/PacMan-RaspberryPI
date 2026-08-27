@@ -1,7 +1,6 @@
 # PacMan-RaspberryPI
-Så Vi tenkte å bruke phraser.js for å kode 2d spillet.
-  
 
+Så Vi tenkte å bruke phraser.js for å kode 2d spillet.
 
 # Design
 
@@ -11,5 +10,3 @@ speed
 spise de andre
 
 3 som jager etter bro
-
-
