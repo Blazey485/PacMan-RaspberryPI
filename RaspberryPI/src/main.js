@@ -31,10 +31,15 @@ let config = {
 
 let game = new Phaser.Game(config);
 
-const grid = this.add.grid (
-    385, 258.5, // x og y senterkoordinatene av gridden på skjermen 
-    770, 517, // w og h av hele gridden 
-    32, 32, // cell w og h 
-    0x000000, 1, // fill farge, fill transparency
-    0xffffff, 0.5 // outline farge, outline transparency tror jeg 
+const grid = this.add.grid(
+	385, // x
+	258.5, // y senterkoordinatene av gridden på skjermen
+	770,
+	517, // w og h av hele gridden
+	32,
+	32, // cell w og h
+	0x000000,
+	1, // fill farge, fill transparency
+	0xffffff,
+	0.5 // outline farge, outline transparency tror jeg
 );
