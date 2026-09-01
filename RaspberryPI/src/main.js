@@ -15,6 +15,7 @@ gameScene.create = function () {
 		.setScale(0.2);
 };
 
+
 //størrelse på skjermen/spillet
 let config = {
 	type: Phaser.AUTO,
