@@ -14,3 +14,7 @@ spise de andre
 TODO
 Musikk
 Karakter design
+
+# TO run the code "run npm run dev"
+
+# map size 770 × 517.2 pixels (due to setScale(0.2) on 3850 × 2586).
