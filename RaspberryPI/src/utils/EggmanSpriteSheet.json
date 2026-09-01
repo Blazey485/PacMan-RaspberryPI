@@ -1,0 +1,35 @@
+{
+  "frames": {
+    "eggman": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 383,
+        "h": 226
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 383,
+        "h": 226
+      },
+      "sourceSize": {
+        "w": 383,
+        "h": 226
+      }
+    }
+  },
+  "meta": {
+    "app": "Image2Pixel Spritesheet Generator",
+    "version": "1.0",
+    "image": "spritesheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 387,
+      "h": 230
+    },
+    "scale": "1"
+  }
+}

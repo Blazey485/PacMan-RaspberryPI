@@ -1,13 +1,6 @@
+
+
 canvas {
-	background-color: rgb(37, 19, 19);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-body,
-html {
-	margin: 0;
-	padding: 0;
+   display: block;
+	border: none;
 }
