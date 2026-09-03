@@ -1,0 +1,35 @@
+{
+  "frames": {
+    "sonic-removebg-preview": {
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 271,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 271,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 271,
+        "h": 36
+      }
+    }
+  },
+  "meta": {
+    "app": "Image2Pixel Spritesheet Generator",
+    "version": "1.0",
+    "image": "spritesheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 273,
+      "h": 38
+    },
+    "scale": "1"
+  }
+}
