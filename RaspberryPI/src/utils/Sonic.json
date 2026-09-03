@@ -1,23 +1,23 @@
 {
   "frames": {
-    "Eggman": {
+    "sonic-removebg-preview": {
       "frame": {
-        "x": 2,
-        "y": 2,
-        "w": 158,
-        "h": 62
+        "x": 1,
+        "y": 1,
+        "w": 271,
+        "h": 36
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 158,
-        "h": 62
+        "w": 271,
+        "h": 36
       },
       "sourceSize": {
-        "w": 158,
-        "h": 62
+        "w": 271,
+        "h": 36
       }
     }
   },
@@ -27,8 +27,8 @@
     "image": "spritesheet.png",
     "format": "RGBA8888",
     "size": {
-      "w": 162,
-      "h": 66
+      "w": 273,
+      "h": 38
     },
     "scale": "1"
   }
