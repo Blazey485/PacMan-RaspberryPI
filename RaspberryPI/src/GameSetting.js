@@ -2,7 +2,7 @@ import Phaser, { Scene } from "phaser";
 import eggman from "./utils/EggmanSpriteSheet.png";
 import eggmanJSON from "./utils/EggmanSpriteSheet.json";
 import sonicJSON from "./utils/Sonic.json";
-import sonicPNG from "./utils/sonic.png";
+import sonicPNG from "./utils/Sonic.png";
 
 export default class GameSetting extends Phaser.Scene {
 	constructor() {
@@ -12,7 +12,6 @@ export default class GameSetting extends Phaser.Scene {
 	preload() {
 		// this.load.image("background", background);
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
-		// this.load.atlas("sonicPlayer", sonic, sonicJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
 	}
 
@@ -31,20 +30,20 @@ export default class GameSetting extends Phaser.Scene {
 			1 // outline farge, på de strekene
 		);
 
+		//- background add when made
 		// this.add
 		// 	.sprite(0, 0, "background")
 		// 	.setOrigin(-0.3, -0.2)
 
 		// 	.setScale(0.2);
 
-		let ghost = this.add.sprite(
-			960,
-			700,
-			"eggmanNPC"
-			// "eggman"
-		);
+		//- EGGMAN CONFIGS
+		let ghost = this.add.sprite(970, 692, "eggmanNPC");
+		ghost.setScale(0.97);
 
-		let player = this.add.sprite(970, 540, "sonicPlayer");
+		//- SONIC CONFIGS
+		let player = this.add.sprite(985, 540, "sonicPlayer");
+		player.setScale(1.8);
 	}
 }
 
