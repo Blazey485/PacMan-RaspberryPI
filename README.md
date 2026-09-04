@@ -17,4 +17,4 @@ Karakter design
 
 # TO run the code "run npm run dev"
 
-# map size 770 × 517.2 pixels (due to setScale(0.2) on 3850 × 2586).
+# grid size: 1900x1050 og each square is 50x50 
