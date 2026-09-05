@@ -4,9 +4,15 @@ import eggmanJSON from "./utils/EggmanSpriteSheet.json";
 import sonicJSON from "./utils/Sonic.json";
 import sonicPNG from "./utils/Sonic.png";
 
+import Eggman from "./Eggman.js";
+import Sonic from "./Sonic.js";
+
+
 export default class GameSetting extends Phaser.Scene {
 	constructor() {
 		super("Game");
+		this.player = null;
+		this.eggman = null;
 	}
 
 	preload() {
@@ -38,12 +44,17 @@ export default class GameSetting extends Phaser.Scene {
 		// 	.setScale(0.2);
 
 		//- EGGMAN CONFIGS
-		let ghost = this.add.sprite(970, 692, "eggmanNPC");
-		ghost.setScale(0.97);
+		this.eggman = new Eggman(this, 970, 692);
 
 		//- SONIC CONFIGS
-		let player = this.add.sprite(985, 540, "sonicPlayer");
-		player.setScale(1.8);
+		this.player = new Sonic(this, 985, 540);
+	}
+
+	update() {
+		if (this.player){
+			this.player.update()
+		}
+
 	}
 }
 
