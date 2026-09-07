@@ -43,18 +43,21 @@ export default class GameSetting extends Phaser.Scene {
 
 		// 	.setScale(0.2);
 
-		//- EGGMAN CONFIGS
-		this.eggman = new Eggman(this, 970, 692);
-
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
+
+		//- EGGMAN CONFIGS
+		this.eggman = new Eggman(this, 970, 692, this.player);
 	}
 
-	update() {
-		if (this.player){
-			this.player.update()
+	update(time, delta) {
+		if (this.player) {
+			this.player.update();
 		}
 
+		if (this.eggman) {
+			this.eggman.update(time, delta);
+		}
 	}
 }
 
