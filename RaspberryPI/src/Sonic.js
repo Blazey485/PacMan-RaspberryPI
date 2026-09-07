@@ -24,6 +24,8 @@ export default class Sonic extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	update() {
+		this.setVelocity;
+		(0, 0);
 		if (
 			this.keys.left.isDown ||
 			this.keys.arrowLeft.isDown

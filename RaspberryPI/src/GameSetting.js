@@ -22,7 +22,6 @@ export default class GameSetting extends Phaser.Scene {
 	}
 
 	create() {
-		//- den value som er på 2. er for hvor stor selve map-pen er. og 40x40 er hvor store bokser det er inni, så alltid ha den 1216x640 og 64x64 i samma gange tabell.
 		const grid = this.add.grid(
 			960,
 			540, // x og y senterkoordinatene av gridden på skjermen
@@ -43,18 +42,35 @@ export default class GameSetting extends Phaser.Scene {
 
 		// 	.setScale(0.2);
 
-		//- EGGMAN CONFIGS
-		this.eggman = new Eggman(this, 970, 692);
-
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
+
+		//- EGGMAN CONFIGS
+		this.eggman = new Eggman(this, 1900, 692, this.player);
+		console.log(
+			this.textures.get("eggmanNPC").getFrameNames()
+		);
+		this.anims.create({
+			key: "eggman_anime",
+			frames: this.anims.generateFrameNames("eggmanNPC", {
+				prefix: "frame1",
+				start: 1,
+				end: 6,
+				zeroPad: 2
+			}),
+			frameRate: 10,
+			repeat: -1
+		});
 	}
 
-	update() {
-		if (this.player){
-			this.player.update()
+	update(time, delta) {
+		if (this.player) {
+			this.player.update();
 		}
 
+		if (this.eggman) {
+			this.eggman.update(time, delta);
+		}
 	}
 }
 
