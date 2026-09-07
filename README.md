@@ -18,3 +18,20 @@ Karakter design
 # TO run the code "run npm run dev"
 
 # grid size: 1900x1050 og each square is 50x50 
+
+
+
+things we need:
+
+map
+egg man wandering 
+toggle between sprites. når de går.  smeg 
+ringer for at sonic samler dem. 
+
+
+
+SFX
+
+high score/ baord. 
+
+og chaos gems for å gjøre sånn at han kan spise eggman 
