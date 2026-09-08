@@ -8,12 +8,9 @@ export default class Rings
 
 		scene.add.existing(this);
 		scene.physics.add.existing(this);
-	}
 
-	preload() {
-		this.load.sprite;
-	}
-	update(time, delta) {
 		this.anims.play("rings_anime", true);
 	}
+
+	update(time, delta) {}
 }
