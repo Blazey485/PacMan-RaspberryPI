@@ -9,6 +9,8 @@ import rings from "./utils/Ring.png";
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
 import Rings from "./rings.js";
+import { loadAnimations } from "./anime.js";
+
 export default class GameSetting extends Phaser.Scene {
 	constructor() {
 		super("Game");
@@ -26,6 +28,8 @@ export default class GameSetting extends Phaser.Scene {
 	}
 
 	create() {
+		loadAnimations(this);
+
 		const grid = this.add.grid(
 			960,
 			540, // x og y senterkoordinatene av gridden på skjermen
@@ -45,45 +49,6 @@ export default class GameSetting extends Phaser.Scene {
 		// 	.setOrigin(-0.3, -0.2)
 
 		// 	.setScale(0.2);
-
-		//! ANIMATIONS
-		this.anims.create({
-			key: "rings_anime",
-			frames: this.anims.generateFrameNames("rings", {
-				prefix: "frame",
-				start: 0,
-				end: 7,
-				zeroPad: 0
-			}),
-			frameRate: 10,
-			repeat: -1
-		});
-
-		this.anims.create({
-			key: "eggman_anime",
-			frames: this.anims.generateFrameNames("eggmanNPC", {
-				prefix: "frame1",
-				start: 1,
-				end: 6,
-				zeroPad: 2
-			}),
-			frameRate: 10,
-			repeat: -1
-		});
-
-		this.anims.create({
-			key: "sonic_Player",
-			frames: this.anims.generateFrameNames("sonicPlayer", {
-				prefix: "frame",
-				start: 1,
-				end: 7,
-				zeroPad: 0
-			}),
-			frameRate: 10,
-			repeat: -1
-		});
-
-		//!SPRITES
 
 		//- rings config
 		this.rings = new Rings(this, 385, 290);
