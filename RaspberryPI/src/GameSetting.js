@@ -80,7 +80,7 @@ export default class GameSetting extends Phaser.Scene {
 
 	update(time, delta) {
 		if (this.player) {
-			this.player.update();
+			this.player.update(time, delta);
 		}
 
 		if (this.eggman) {
