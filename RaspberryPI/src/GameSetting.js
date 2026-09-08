@@ -3,12 +3,13 @@ import eggman from "./utils/EggmanSpriteSheet.png";
 import eggmanJSON from "./utils/EggmanSpriteSheet.json";
 import sonicJSON from "./utils/Sonic.json";
 import sonicPNG from "./utils/Sonic.png";
-import ringsJSON from "./utils/Ring.json"
-import rings from "./utils/Ring.png"
+import ringsJSON from "./utils/Ring.json";
+import rings from "./utils/Ring.png";
 
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
-
+import Rings from "./rings.js";
+import { loadAnimations } from "./anime.js";
 
 export default class GameSetting extends Phaser.Scene {
 	constructor() {
@@ -27,6 +28,8 @@ export default class GameSetting extends Phaser.Scene {
 	}
 
 	create() {
+		loadAnimations(this);
+
 		const grid = this.add.grid(
 			960,
 			540, // x og y senterkoordinatene av gridden på skjermen
@@ -46,57 +49,18 @@ export default class GameSetting extends Phaser.Scene {
 		// 	.setOrigin(-0.3, -0.2)
 
 		// 	.setScale(0.2);
-		let ringer = this.add.sprite(385, 290, 'rings')
-		ringer.setScale(0.6)
 
-
+		//- rings config
+		this.rings = new Rings(this, 385, 290);
+		this.rings.setScale(0.6);
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
 		console.log(
 			this.textures.get("sonicPlayer").getFrameNames()
 		);
 
-		this.anims.create({
-			key: "sonic_Player",
-			frames: this.anims.generateFrameNames("sonicPlayer", {
-				prefix: "frame",
-				start: 1,
-				end: 7,
-				zeroPad: 0
-			}),
-			frameRate: 10,
-			repeat: -1
-		});
-
 		//- EGGMAN CONFIGS
 		this.eggman = new Eggman(this, 1900, 692, this.player);
-
-		this.anims.create({
-			key: "eggman_anime",
-			frames: this.anims.generateFrameNames("eggmanNPC", {
-				prefix: "frame1",
-				start: 1,
-				end: 6,
-				zeroPad: 2
-			}),
-			frameRate: 10,
-			repeat: -1
-		});
-
-				this.anims.create({
-			key: "rings_anime",
-			frames: this.anims.generateFrameNames("rings", {
-				prefix: "frame1",
-				start: 1,
-				end: 6,
-				zeroPad: 2
-			}),
-			frameRate: 10,
-			repeat: -1
-		});
-
-
-
 	}
 
 	update(time, delta) {
@@ -111,8 +75,5 @@ export default class GameSetting extends Phaser.Scene {
 		if (this.rings) {
 			this.rings.update(time, delta);
 		}
-
 	}
 }
-
-
