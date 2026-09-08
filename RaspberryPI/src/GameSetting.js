@@ -3,13 +3,12 @@ import eggman from "./utils/EggmanSpriteSheet.png";
 import eggmanJSON from "./utils/EggmanSpriteSheet.json";
 import sonicJSON from "./utils/Sonic.json";
 import sonicPNG from "./utils/Sonic.png";
-import ringsJSON from "./utils/Ring.json"
-import rings from "./utils/Ring.png"
+import ringsJSON from "./utils/Ring.json";
+import rings from "./utils/Ring.png";
 
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
-
-
+import Rings from "./rings.js";
 export default class GameSetting extends Phaser.Scene {
 	constructor() {
 		super("Game");
@@ -46,30 +45,19 @@ export default class GameSetting extends Phaser.Scene {
 		// 	.setOrigin(-0.3, -0.2)
 
 		// 	.setScale(0.2);
-		let ringer = this.add.sprite(385, 290, 'rings')
-		ringer.setScale(0.6)
 
-
-		//- SONIC CONFIGS
-		this.player = new Sonic(this, 985, 540);
-		console.log(
-			this.textures.get("sonicPlayer").getFrameNames()
-		);
-
+		//! ANIMATIONS
 		this.anims.create({
-			key: "sonic_Player",
-			frames: this.anims.generateFrameNames("sonicPlayer", {
+			key: "rings_anime",
+			frames: this.anims.generateFrameNames("rings", {
 				prefix: "frame",
-				start: 1,
+				start: 0,
 				end: 7,
 				zeroPad: 0
 			}),
 			frameRate: 10,
 			repeat: -1
 		});
-
-		//- EGGMAN CONFIGS
-		this.eggman = new Eggman(this, 1900, 692, this.player);
 
 		this.anims.create({
 			key: "eggman_anime",
@@ -83,20 +71,31 @@ export default class GameSetting extends Phaser.Scene {
 			repeat: -1
 		});
 
-				this.anims.create({
-			key: "rings_anime",
-			frames: this.anims.generateFrameNames("rings", {
-				prefix: "frame1",
+		this.anims.create({
+			key: "sonic_Player",
+			frames: this.anims.generateFrameNames("sonicPlayer", {
+				prefix: "frame",
 				start: 1,
-				end: 6,
-				zeroPad: 2
+				end: 7,
+				zeroPad: 0
 			}),
 			frameRate: 10,
 			repeat: -1
 		});
 
+		//!SPRITES
 
+		//- rings config
+		this.rings = new Rings(this, 385, 290);
+		this.rings.setScale(0.6);
+		//- SONIC CONFIGS
+		this.player = new Sonic(this, 985, 540);
+		console.log(
+			this.textures.get("sonicPlayer").getFrameNames()
+		);
 
+		//- EGGMAN CONFIGS
+		this.eggman = new Eggman(this, 1900, 692, this.player);
 	}
 
 	update(time, delta) {
@@ -111,8 +110,5 @@ export default class GameSetting extends Phaser.Scene {
 		if (this.rings) {
 			this.rings.update(time, delta);
 		}
-
 	}
 }
-
-
