@@ -57,7 +57,7 @@ export default class GameSetting extends Phaser.Scene {
 		);
 
 		this.anims.create({
-			key: "sonic_anime",
+			key: "sonic_Player",
 			frames: this.anims.generateFrameNames("sonicPlayer", {
 				prefix: "frame",
 				start: 1,
