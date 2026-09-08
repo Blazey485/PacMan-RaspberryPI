@@ -124,7 +124,7 @@
   "meta": {
     "app": "SpritePacker — Sprite Sheet Generator",
     "version": "1.0",
-    "image": "spritesheet.png",
+    "image": "EggmanSpriteSheet.png",
     "format": "RGBA8888",
     "size": {
       "w": 496,
