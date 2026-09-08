@@ -3,6 +3,8 @@ import eggman from "./utils/EggmanSpriteSheet.png";
 import eggmanJSON from "./utils/EggmanSpriteSheet.json";
 import sonicJSON from "./utils/Sonic.json";
 import sonicPNG from "./utils/Sonic.png";
+import ringsJSON from "./utils/Ring.json"
+import rings from "./utils/Ring.png"
 
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
@@ -19,6 +21,7 @@ export default class GameSetting extends Phaser.Scene {
 		// this.load.image("background", background);
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
+		this.load.atlas("rings", rings, ringsJSON);
 	}
 
 	create() {
@@ -41,6 +44,9 @@ export default class GameSetting extends Phaser.Scene {
 		// 	.setOrigin(-0.3, -0.2)
 
 		// 	.setScale(0.2);
+		let ringer = this.add.sprite(385, 290, 'rings')
+		ringer.setScale(0.6)
+
 
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
@@ -61,6 +67,21 @@ export default class GameSetting extends Phaser.Scene {
 			frameRate: 10,
 			repeat: -1
 		});
+
+				this.anims.create({
+			key: "rings_anime",
+			frames: this.anims.generateFrameNames("rings", {
+				prefix: "frame1",
+				start: 1,
+				end: 6,
+				zeroPad: 2
+			}),
+			frameRate: 10,
+			repeat: -1
+		});
+
+
+
 	}
 
 	update(time, delta) {
@@ -71,6 +92,12 @@ export default class GameSetting extends Phaser.Scene {
 		if (this.eggman) {
 			this.eggman.update(time, delta);
 		}
+
+		if (this.rings) {
+			this.rings.update(time, delta);
+		}
+
 	}
 }
+
 
