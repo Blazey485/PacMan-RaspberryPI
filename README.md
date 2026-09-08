@@ -24,7 +24,8 @@ Karakter design
 things we need:
 
 map
-toggle between sprites. når de går.  smeg 
+
+
 ringer for at sonic samler dem. 
 
 

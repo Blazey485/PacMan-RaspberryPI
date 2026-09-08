@@ -19,6 +19,8 @@ export default class GameSetting extends Phaser.Scene {
 
 	preload() {
 		// this.load.image("background", background);
+
+		//hvor vi initiater sprites
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
 		this.load.atlas("rings", rings, ringsJSON);
@@ -32,9 +34,9 @@ export default class GameSetting extends Phaser.Scene {
 			1050, // w og h av hele gridden
 			50,
 			50, // cell w og h
-			0xff00000,
-			1, // fill farge, fill transparency
 			0x000000,
+			1, // fill farge, fill transparency
+			0xffffff,
 			1 // outline farge, på de strekene
 		);
 
@@ -50,12 +52,25 @@ export default class GameSetting extends Phaser.Scene {
 
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
+		console.log(
+			this.textures.get("sonicPlayer").getFrameNames()
+		);
+
+		this.anims.create({
+			key: "sonic_anime",
+			frames: this.anims.generateFrameNames("sonicPlayer", {
+				prefix: "frame",
+				start: 1,
+				end: 7,
+				zeroPad: 0
+			}),
+			frameRate: 10,
+			repeat: -1
+		});
 
 		//- EGGMAN CONFIGS
 		this.eggman = new Eggman(this, 1900, 692, this.player);
-		console.log(
-			this.textures.get("eggmanNPC").getFrameNames()
-		);
+
 		this.anims.create({
 			key: "eggman_anime",
 			frames: this.anims.generateFrameNames("eggmanNPC", {
@@ -86,7 +101,7 @@ export default class GameSetting extends Phaser.Scene {
 
 	update(time, delta) {
 		if (this.player) {
-			this.player.update();
+			this.player.update(time, delta);
 		}
 
 		if (this.eggman) {

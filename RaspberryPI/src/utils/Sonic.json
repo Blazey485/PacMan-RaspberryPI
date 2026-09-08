@@ -144,7 +144,7 @@
   "meta": {
     "app": "SpritePacker — Sprite Sheet Generator",
     "version": "1.0",
-    "image": "spritesheet.png",
+    "image": "sonic.png",
     "format": "RGBA8888",
     "size": {
       "w": 250,

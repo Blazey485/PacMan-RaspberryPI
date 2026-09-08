@@ -9,7 +9,9 @@ let config = {
 	height: 1080,
 	parent: "game",
 	backgroundColor: "#2d2d2d",
-
+	input: {
+		gamepad: true
+	},
 	scale: {
 		mode: Phaser.Scale.FIT,
 		autoCenter: Phaser.Scale.CENTER_BOTH
