@@ -89,6 +89,7 @@ export default class GameSetting extends Phaser.Scene {
 
 	targetHit(player, ring) {
 		ring.disableBody(true, true); 
+		// this.points += 10;
 		this.points++;
 		this.textScore.setText(`Score: ${this.points}`)
 
