@@ -65,7 +65,7 @@ export default class GameSetting extends Phaser.Scene {
 		this.eggman = new Eggman(this, 1900, 692, this.player);
 
 		// Overlap detection
-		this.physics.add.overlap(this.rings,this.player,this.targetHit, null, this)
+		this.physics.add.overlap(this.player,this.rings,this.targetHit, null, this)
 
 		this.textScore = this.add.text(120, 10, "Score:0", {
 			font: "25px Arial",
@@ -87,8 +87,10 @@ export default class GameSetting extends Phaser.Scene {
 		}
 	}
 
-	targetHit() {
-        this.points++;
+	targetHit(player, ring) {
+		ring.disableBody(true, true); 
+		this.points++;
 		this.textScore.setText(`Score: ${this.points}`)
-    }
+
+	}
 }
