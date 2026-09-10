@@ -16,6 +16,8 @@ export default class GameSetting extends Phaser.Scene {
 		super("Game");
 		this.player = null;
 		this.eggman = null;
+		this.points = 0;
+		this.textScore;
 	}
 
 	preload() {
@@ -61,6 +63,14 @@ export default class GameSetting extends Phaser.Scene {
 
 		//- EGGMAN CONFIGS
 		this.eggman = new Eggman(this, 1900, 692, this.player);
+
+		// Overlap detection
+		this.physics.add.overlap(this.rings,this.player,this.targetHit, null, this)
+
+		this.textScore = this.add.text(120, 10, "Score:0", {
+			font: "25px Arial",
+			fill: "#ffff"
+		});
 	}
 
 	update(time, delta) {
@@ -76,4 +86,9 @@ export default class GameSetting extends Phaser.Scene {
 			this.rings.update(time, delta);
 		}
 	}
+
+	targetHit() {
+        this.points++;
+		this.textScore.setText(`Score: ${this.points}`)
+    }
 }
