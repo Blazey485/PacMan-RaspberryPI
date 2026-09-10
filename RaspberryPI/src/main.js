@@ -1,7 +1,6 @@
-
 import Phaser, { Scene } from "phaser";
 import gameSetting from "./GameSetting.js";
-
+import { MergedInput } from "phaser3-merged-input";
 //størrelse på skjermen/spillet og bascially alt config
 let config = {
 	type: Phaser.AUTO,
@@ -15,6 +14,16 @@ let config = {
 	scale: {
 		mode: Phaser.Scale.FIT,
 		autoCenter: Phaser.Scale.CENTER_BOTH
+	},
+
+	plugin: {
+		scene: [
+			{
+				key: "mergedInput",
+				plugin: MergedInput,
+				mapping: "mergedInput"
+			}
+		]
 	},
 
 	physics: {
