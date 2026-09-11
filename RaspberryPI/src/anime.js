@@ -8,7 +8,7 @@ export const loadAnimations = (scene) => {
 			end: 7,
 			zeroPad: 0
 		}),
-		frameRate: 10,
+		frameRate: 15,
 		repeat: -1
 	});
 
@@ -20,19 +20,50 @@ export const loadAnimations = (scene) => {
 			end: 6,
 			zeroPad: 2
 		}),
-		frameRate: 10,
+		frameRate: 12,
 		repeat: -1
 	});
+
 
 	scene.anims.create({
 		key: "sonic_Player",
 		frames: scene.anims.generateFrameNames("sonicPlayer", {
 			prefix: "frame",
-			start: 1,
+			start: 0,
 			end: 7,
 			zeroPad: 0
 		}),
-		frameRate: 10,
+		frameRate: 24,
+		repeat: -1
+	});
+
+	scene.anims.create({
+		key: "sonic_PlayerUp",
+		frames: scene.anims.generateFrameNames(
+			"sonicPlayerUp",
+			{
+				prefix: "frame",
+				start: 0,
+				end: 11,
+				zeroPad: 0
+			}
+		),
+		frameRate: 24,
+		repeat: -1
+	});
+
+	scene.anims.create({
+		key: "sonic_PlayerDown",
+		frames: scene.anims.generateFrameNames(
+			"sonicPlayerDown",
+			{
+				prefix: "frame",
+				start: 0,
+				end: 11,
+				zeroPad: 0
+			}
+		),
+		frameRate: 24,
 		repeat: -1
 	});
 };

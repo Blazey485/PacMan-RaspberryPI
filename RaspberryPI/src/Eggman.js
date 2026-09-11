@@ -7,10 +7,10 @@ export default class Eggman
 		super(scene, x, y, "eggmanNPC");
 
 		scene.add.existing(this);
-		this.setScale(0.97);
+		this.setScale(1.8);
 		scene.physics.add.existing(this);
 		this.target = target;
-		this.speed = 175;
+		this.speed = 150;
 	}
 
 	preload() {
@@ -27,7 +27,7 @@ export default class Eggman
 			this.target.y
 		);
 
-		if (distance > 50) {
+		if (distance > 10000) {
 			this.scene.physics.moveToObject(
 				this,
 				this.target,

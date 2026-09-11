@@ -1,10 +1,19 @@
 import Phaser, { Scene } from "phaser";
+
 import eggman from "./utils/EggmanSpriteSheet.png";
 import eggmanJSON from "./utils/EggmanSpriteSheet.json";
-import sonicJSON from "./utils/Sonic.json";
-import sonicPNG from "./utils/Sonic.png";
+
+import sonicJSON from "./utils/Sonic/Sonic.json";
+import sonicPNG from "./utils/Sonic/Sonic.png";
+import SonicUpJSON from "./utils/Sonic/SonicUp.json";
+import SonicUp from "./utils/Sonic/SonicUp.png";
+import SonicDownJSON from "./utils/Sonic/SonicDown.json";
+import SonicDown from "./utils/Sonic/SonicDown.png";
+
 import ringsJSON from "./utils/Ring.json";
 import rings from "./utils/Ring.png";
+
+import bg from "./utils/Background.png";
 
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
@@ -21,11 +30,17 @@ export default class GameSetting extends Phaser.Scene {
 	}
 
 	preload() {
-		// this.load.image("background", background);
+		this.load.image("background", bg);
 
 		//hvor vi initiater sprites
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
+		this.load.atlas("sonicPlayerUp", SonicUp, SonicUpJSON);
+		this.load.atlas(
+			"sonicPlayerDown",
+			SonicDown,
+			SonicDownJSON
+		);
 		this.load.atlas("rings", rings, ringsJSON);
 	}
 
@@ -42,19 +57,18 @@ export default class GameSetting extends Phaser.Scene {
 			0x000000,
 			1, // fill farge, fill transparency
 			0xffffff,
-			1 // outline farge, på de strekene
+			0 // outline farge, på de strekene
 		);
 
-		//- background add when made
-		// this.add
-		// 	.sprite(0, 0, "background")
-		// 	.setOrigin(-0.3, -0.2)
+		this.add
+			.sprite(-490, -155, "background")
+			.setOrigin(-0.3, -0.2)
 
-		// 	.setScale(0.2);
+
 
 		//- rings config
 		this.rings = new Rings(this, 385, 290);
-		this.rings.setScale(0.6);
+		this.rings.setScale(0.8);
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
 		console.log(
