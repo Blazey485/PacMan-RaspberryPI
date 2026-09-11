@@ -1,10 +1,16 @@
 import Phaser, { Scene } from "phaser";
+
 import eggman from "./utils/EggmanSpriteSheet.png";
 import eggmanJSON from "./utils/EggmanSpriteSheet.json";
+
 import sonicJSON from "./utils/Sonic/Sonic.json";
 import sonicPNG from "./utils/Sonic/Sonic.png";
+import SonicUpJSON from "./utils/Sonic/SonicUp.json";
+import SonicUp from "./utils/Sonic/SonicUp.png";
+
 import ringsJSON from "./utils/Ring.json";
 import rings from "./utils/Ring.png";
+
 import bg from "./utils/Background.png";
 
 import Eggman from "./Eggman.js";
@@ -27,6 +33,7 @@ export default class GameSetting extends Phaser.Scene {
 		//hvor vi initiater sprites
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
+		this.load.atlas("sonicPlayerUp", SonicUp, SonicUpJSON);
 		this.load.atlas("rings", rings, ringsJSON);
 	}
 
