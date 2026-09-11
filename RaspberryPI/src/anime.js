@@ -28,11 +28,11 @@ export const loadAnimations = (scene) => {
 		key: "sonic_Player",
 		frames: scene.anims.generateFrameNames("sonicPlayer", {
 			prefix: "frame",
-			start: 1,
+			start: 0,
 			end: 7,
 			zeroPad: 0
 		}),
-		frameRate: 10,
+		frameRate: 24,
 		repeat: -1
 	});
 };
