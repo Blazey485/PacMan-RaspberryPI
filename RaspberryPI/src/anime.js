@@ -51,4 +51,19 @@ export const loadAnimations = (scene) => {
 		frameRate: 24,
 		repeat: -1
 	});
+
+	scene.anims.create({
+		key: "sonic_PlayerDown",
+		frames: scene.anims.generateFrameNames(
+			"sonicPlayerDown",
+			{
+				prefix: "frame",
+				start: 0,
+				end: 11,
+				zeroPad: 0
+			}
+		),
+		frameRate: 24,
+		repeat: -1
+	});
 };

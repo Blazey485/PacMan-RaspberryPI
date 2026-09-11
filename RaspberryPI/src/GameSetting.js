@@ -7,6 +7,8 @@ import sonicJSON from "./utils/Sonic/Sonic.json";
 import sonicPNG from "./utils/Sonic/Sonic.png";
 import SonicUpJSON from "./utils/Sonic/SonicUp.json";
 import SonicUp from "./utils/Sonic/SonicUp.png";
+import SonicDownJSON from "./utils/Sonic/SonicDown.json";
+import SonicDown from "./utils/Sonic/SonicDown.png";
 
 import ringsJSON from "./utils/Ring.json";
 import rings from "./utils/Ring.png";
@@ -34,6 +36,11 @@ export default class GameSetting extends Phaser.Scene {
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
 		this.load.atlas("sonicPlayerUp", SonicUp, SonicUpJSON);
+		this.load.atlas(
+			"sonicPlayerDown",
+			SonicDown,
+			SonicDownJSON
+		);
 		this.load.atlas("rings", rings, ringsJSON);
 	}
 

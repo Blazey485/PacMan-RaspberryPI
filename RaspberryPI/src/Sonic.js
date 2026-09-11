@@ -9,7 +9,9 @@ export default class Sonic
 		scene.add.existing(this);
 		scene.physics.add.existing(this);
 
-		this.setScale(0.3);
+		// this.setScale(0.3);
+		this.setScale(1.8);
+
 
 		this.speed = 200;
 
@@ -37,8 +39,8 @@ export default class Sonic
 			this.setVelocity(-this.speed, 0);
 			this.setFlipX(true);
 			this.anims.play("sonic_Player", true);
-			this.setScale(0.3);
-
+			// this.setScale(0.3);
+			this.setScale(1.8);
 		} else if (
 			this.keys.right.isDown ||
 			this.keys.arrowRight.isDown
@@ -46,7 +48,8 @@ export default class Sonic
 			this.setVelocity(this.speed, 0);
 			this.setFlipX(false);
 			this.anims.play("sonic_Player", true);
-			this.setScale(0.3)
+			// this.setScale(0.3)
+			this.setScale(1.8);
 		}
 
 		//- DOWN AND UP
