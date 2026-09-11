@@ -26,12 +26,12 @@ things we need:
 map
 
 
-ringer for at sonic samler dem. 
 
 
 
-SFX
 
-high score/ baord. 
+high score/ board. 
 
 og chaos gems for å gjøre sånn at han kan spise eggman 
+
+SFX
