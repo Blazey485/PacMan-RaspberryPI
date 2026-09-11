@@ -1,154 +1,174 @@
 {
   "frames": {
-    "frame1": {
+    "frame0": {
       "frame": {
-        "x": 3,
+        "x": 1,
         "y": 1,
-        "w": 27,
-        "h": 29
+        "w": 176,
+        "h": 256
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 27,
-        "h": 29
+        "w": 176,
+        "h": 256
       },
       "sourceSize": {
-        "w": 27,
-        "h": 29
+        "w": 176,
+        "h": 256
+      }
+    },
+    "frame1": {
+      "frame": {
+        "x": 178,
+        "y": 1,
+        "w": 176,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 256
       }
     },
     "frame2": {
       "frame": {
-        "x": 39,
-        "y": 0,
-        "w": 28,
-        "h": 30
+        "x": 355,
+        "y": 1,
+        "w": 176,
+        "h": 256
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 28,
-        "h": 30
+        "w": 176,
+        "h": 256
       },
       "sourceSize": {
-        "w": 28,
-        "h": 30
+        "w": 176,
+        "h": 256
       }
     },
     "frame3": {
       "frame": {
-        "x": 73,
-        "y": 2,
-        "w": 32,
-        "h": 28
+        "x": 532,
+        "y": 1,
+        "w": 176,
+        "h": 256
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 32,
-        "h": 28
+        "w": 176,
+        "h": 256
       },
       "sourceSize": {
-        "w": 32,
-        "h": 28
+        "w": 176,
+        "h": 256
       }
     },
     "frame4": {
       "frame": {
-        "x": 111,
-        "y": 3,
-        "w": 27,
-        "h": 27
+        "x": 709,
+        "y": 1,
+        "w": 176,
+        "h": 256
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 27,
-        "h": 27
+        "w": 176,
+        "h": 256
       },
       "sourceSize": {
-        "w": 27,
-        "h": 27
+        "w": 176,
+        "h": 256
       }
     },
     "frame5": {
       "frame": {
-        "x": 147,
+        "x": 886,
         "y": 1,
-        "w": 27,
-        "h": 29
+        "w": 176,
+        "h": 256
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 27,
-        "h": 29
+        "w": 176,
+        "h": 256
       },
       "sourceSize": {
-        "w": 27,
-        "h": 29
+        "w": 176,
+        "h": 256
       }
     },
     "frame6": {
       "frame": {
-        "x": 181,
-        "y": 0,
-        "w": 31,
-        "h": 30
+        "x": 1063,
+        "y": 1,
+        "w": 176,
+        "h": 256
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 31,
-        "h": 30
+        "w": 176,
+        "h": 256
       },
       "sourceSize": {
-        "w": 31,
-        "h": 30
+        "w": 176,
+        "h": 256
       }
     },
     "frame7": {
       "frame": {
-        "x": 216,
+        "x": 1240,
         "y": 1,
-        "w": 34,
-        "h": 29
+        "w": 176,
+        "h": 256
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 34,
-        "h": 29
+        "w": 176,
+        "h": 256
       },
       "sourceSize": {
-        "w": 34,
-        "h": 29
+        "w": 176,
+        "h": 256
       }
     }
   },
   "meta": {
-    "app": "SpritePacker — Sprite Sheet Generator",
+    "app": "Image2Pixel Spritesheet Generator",
     "version": "1.0",
-    "image": "sonic.png",
+    "image": "spritesheet.png",
     "format": "RGBA8888",
     "size": {
-      "w": 250,
-      "h": 30
+      "w": 1417,
+      "h": 258
     },
     "scale": "1"
   }
