@@ -8,7 +8,7 @@ export const loadAnimations = (scene) => {
 			end: 7,
 			zeroPad: 0
 		}),
-		frameRate: 10,
+		frameRate: 15,
 		repeat: -1
 	});
 
@@ -20,7 +20,7 @@ export const loadAnimations = (scene) => {
 			end: 6,
 			zeroPad: 2
 		}),
-		frameRate: 10,
+		frameRate: 12,
 		repeat: -1
 	});
 

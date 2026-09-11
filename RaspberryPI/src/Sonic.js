@@ -9,7 +9,7 @@ export default class Sonic
 		scene.add.existing(this);
 		scene.physics.add.existing(this);
 
-		this.setScale(1.8);
+		this.setScale(2.5);
 
 		this.speed = 200;
 
