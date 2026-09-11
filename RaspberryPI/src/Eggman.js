@@ -27,7 +27,7 @@ export default class Eggman
 			this.target.y
 		);
 
-		if (distance > 80) {
+		if (distance > 10000) {
 			this.scene.physics.moveToObject(
 				this,
 				this.target,
