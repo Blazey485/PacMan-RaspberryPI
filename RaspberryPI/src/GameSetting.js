@@ -1,8 +1,8 @@
 import Phaser, { Scene } from "phaser";
 import eggman from "./utils/EggmanSpriteSheet.png";
 import eggmanJSON from "./utils/EggmanSpriteSheet.json";
-import sonicJSON from "./utils/Sonic.json";
-import sonicPNG from "./utils/Sonic.png";
+import sonicJSON from "./utils/Sonic/Sonic.json";
+import sonicPNG from "./utils/Sonic/Sonic.png";
 import ringsJSON from "./utils/Ring.json";
 import rings from "./utils/Ring.png";
 import bg from "./utils/Background.png";
