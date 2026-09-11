@@ -24,6 +24,7 @@ export const loadAnimations = (scene) => {
 		repeat: -1
 	});
 
+
 	scene.anims.create({
 		key: "sonic_Player",
 		frames: scene.anims.generateFrameNames("sonicPlayer", {
@@ -32,6 +33,21 @@ export const loadAnimations = (scene) => {
 			end: 7,
 			zeroPad: 0
 		}),
+		frameRate: 24,
+		repeat: -1
+	});
+
+	scene.anims.create({
+		key: "sonic_PlayerUp",
+		frames: scene.anims.generateFrameNames(
+			"sonicPlayerUp",
+			{
+				prefix: "frame",
+				start: 0,
+				end: 11,
+				zeroPad: 0
+			}
+		),
 		frameRate: 24,
 		repeat: -1
 	});

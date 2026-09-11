@@ -4,7 +4,7 @@ export default class Sonic
 	extends Phaser.Physics.Arcade.Sprite
 {
 	constructor(scene, x, y) {
-		super(scene, x, y, "sonicPlayer");
+		super(scene, x, y, "sonicPlayer", "sonicPlayerUp");
 
 		scene.add.existing(this);
 		scene.physics.add.existing(this);
@@ -48,13 +48,13 @@ export default class Sonic
 			this.keys.arrowUp.isDown
 		) {
 			this.setVelocity(0, -this.speed);
-			this.anims.play("sonic_Player", true);
+			this.anims.play("sonic_PlayerUp", true);
 		} else if (
 			this.keys.down.isDown ||
 			this.keys.arrowDown.isDown
 		) {
 			this.setVelocity(0, this.speed);
-			this.anims.play("sonic_Player", true);
+			this.anims.play("sonic_PlayerDown", true);
 		}
 	}
 }
