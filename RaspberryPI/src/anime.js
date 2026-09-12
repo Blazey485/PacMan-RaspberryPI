@@ -30,7 +30,7 @@ export const loadAnimations = (scene) => {
 		frames: scene.anims.generateFrameNames("sonicPlayer", {
 			prefix: "frame",
 			start: 0,
-			end: 7,
+			end: 6,
 			zeroPad: 0
 		}),
 		frameRate: 24,
