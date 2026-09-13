@@ -1,7 +1,8 @@
 import Phaser, { Scene } from "phaser";
 
-import eggman from "./utils/EggmanSpriteSheet.png";
-import eggmanJSON from "./utils/EggmanSpriteSheet.json";
+import eggmanJSON from "./utils/Egg.json";
+import eggman from "./utils/Egg.png";
+
 
 import sonicJSON from "./utils/Sonic/Sonic.json";
 import sonicPNG from "./utils/Sonic/Sonic.png";
@@ -31,7 +32,6 @@ export default class GameSetting extends Phaser.Scene {
 
 	preload() {
 		this.load.image("background", bg);
-
 		//hvor vi initiater sprites
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
@@ -57,14 +57,13 @@ export default class GameSetting extends Phaser.Scene {
 			0x000000,
 			1, // fill farge, fill transparency
 			0xffffff,
-			0 // outline farge, på de strekene
+			1 // outline farge, på de strekene
 		);
 
 		this.add
-			.sprite(-490, -155, "background")
-			.setOrigin(-0.3, -0.2)
-
-
+			.sprite(-556, -196, "background")
+			.setDisplaySize(1900, 1050)
+			.setOrigin(-0.3, -0.2);
 
 		//- rings config
 		this.rings = new Rings(this, 385, 290);
@@ -79,7 +78,13 @@ export default class GameSetting extends Phaser.Scene {
 		this.eggman = new Eggman(this, 1900, 692, this.player);
 
 		// Overlap detection
-		this.physics.add.overlap(this.player,this.rings,this.targetHit, null, this)
+		this.physics.add.overlap(
+			this.player,
+			this.rings,
+			this.targetHit,
+			null,
+			this
+		);
 
 		this.textScore = this.add.text(120, 10, "Score:0", {
 			font: "25px Arial",

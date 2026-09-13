@@ -11,6 +11,7 @@ export default class Eggman
 		scene.physics.add.existing(this);
 		this.target = target;
 		this.speed = 150;
+		// this.flipX(true);
 	}
 
 	preload() {
@@ -27,7 +28,7 @@ export default class Eggman
 			this.target.y
 		);
 
-		if (distance > 10000) {
+		if (distance > 100) {
 			this.scene.physics.moveToObject(
 				this,
 				this.target,
