@@ -11,6 +11,7 @@ export default class Sonic
 
 		// this.setScale(0.3);
 		this.setScale(1.8);
+		this.setCollideWorldBounds(true);
 
 
 		this.speed = 200;

@@ -11,7 +11,7 @@ export default class Eggman
 		scene.physics.add.existing(this);
 		this.target = target;
 		this.speed = 150;
-		// this.flipX(true);
+		this.setCollideWorldBounds(true);
 	}
 
 	preload() {
