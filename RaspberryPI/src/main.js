@@ -15,7 +15,9 @@ let config = {
 		mode: Phaser.Scale.FIT,
 		autoCenter: Phaser.Scale.CENTER_BOTH
 	},
-
+	// fps: {
+	// 	limit: 30
+	// },
 
 	physics: {
 		default: "arcade",
@@ -26,6 +28,7 @@ let config = {
 	},
 	scene: [gameSetting]
 };
+
 
 // kjøerer koden:
 let game = new Phaser.Game(config);

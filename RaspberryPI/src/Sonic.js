@@ -11,6 +11,7 @@ export default class Sonic
 
 		// this.setScale(0.3);
 		this.setScale(1.8);
+		this.body.setSize(64, 64);
 		this.setCollideWorldBounds(true);
 
 
@@ -42,6 +43,9 @@ export default class Sonic
 			this.anims.play("sonic_Player", true);
 			// this.setScale(0.3);
 			this.setScale(1.8);
+			this.setCollideWorldBounds(true);
+			this.body.setSize(64, 64);
+
 		} else if (
 			this.keys.right.isDown ||
 			this.keys.arrowRight.isDown
@@ -51,6 +55,9 @@ export default class Sonic
 			this.anims.play("sonic_Player", true);
 			// this.setScale(0.3)
 			this.setScale(1.8);
+			this.setCollideWorldBounds(true);
+			this.body.setSize(64, 64);
+
 		}
 
 		//- DOWN AND UP
@@ -61,6 +68,9 @@ export default class Sonic
 			this.setVelocity(0, -this.speed);
 			this.anims.play("sonic_PlayerUp", true);
 			this.setScale(0.5, 0.3);
+		this.setCollideWorldBounds(true);
+		this.body.setSize(64, 64);
+
 		} else if (
 			this.keys.down.isDown ||
 			this.keys.arrowDown.isDown
@@ -68,6 +78,8 @@ export default class Sonic
 			this.setVelocity(0, this.speed);
 			this.anims.play("sonic_PlayerDown", true);
 			this.setScale(0.5, 0.3);
+			this.setCollideWorldBounds(true);
+this.body.setSize(64, 64);
 		}
 	}
 }
