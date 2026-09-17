@@ -17,10 +17,10 @@ export const loadAnimations = (scene) => {
 		frames: scene.anims.generateFrameNames("eggmanNPC", {
 			prefix: "frame1",
 			start: 1,
-			end: 6,
+			end: 5,
 			zeroPad: 2
 		}),
-		frameRate: 12,
+		frameRate: 8,
 		repeat: -1
 	});
 
@@ -29,7 +29,7 @@ export const loadAnimations = (scene) => {
 		key: "sonic_Player",
 		frames: scene.anims.generateFrameNames("sonicPlayer", {
 			prefix: "frame",
-			start: 0,
+			start: 1,
 			end: 6,
 			zeroPad: 0
 		}),

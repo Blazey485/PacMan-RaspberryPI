@@ -14,7 +14,7 @@ import SonicDown from "./utils/Sonic/SonicDown.png";
 import ringsJSON from "./utils/Ring.json";
 import rings from "./utils/Ring.png";
 
-import bg from "./utils/Background.png";
+import bg from "./utils/Bakgrunn2.png";
 
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
@@ -88,9 +88,11 @@ export default class GameSetting extends Phaser.Scene {
 			this
 		);
 
-		this.textScore = this.add.text(120, 10, "Score:0", {
+		this.textScore = this.add.text(120, 23, "Score: 0", {
 			font: "25px Arial",
-			fill: "#ffff"
+			fill: "#0e0c0c",
+			backgroundColor: "#5abd46",
+			fixedWidth: "120"
 		});
 
 		// 	const spawnPoint = [
@@ -115,6 +117,14 @@ export default class GameSetting extends Phaser.Scene {
     }
 
 
+		this.fpsShow = this.add.text(1800, 23, "FPS", {
+			font: "25px Arial",
+			fill: "#ffffff",
+			backgroundColor: "#5abd46"
+		});
+		this.fpsShow.setText(
+			Math.round(this.game.loop.actualFps)
+		);
 	}
 
 	update(time, delta) {
@@ -129,6 +139,13 @@ export default class GameSetting extends Phaser.Scene {
 		if (this.rings) {
 			this.rings.update(time, delta);
 		}
+
+		if (this.fpsShow) {
+			this.fpsShow.setText(
+				`FPS: ${Math.round(this.game.loop.actualFps)}`
+			);
+		}
+		
 	}
 
 	targetHit(player, ring) {
