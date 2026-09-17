@@ -14,7 +14,7 @@ import SonicDown from "./utils/Sonic/SonicDown.png";
 import ringsJSON from "./utils/Ring.json";
 import rings from "./utils/Ring.png";
 
-import bg from "./utils/Background.png";
+import bg from "./utils/Bakgrunn2.png";
 
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
