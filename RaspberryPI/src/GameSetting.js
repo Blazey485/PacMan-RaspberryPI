@@ -28,6 +28,8 @@ export default class GameSetting extends Phaser.Scene {
 		this.eggman = null;
 		this.points = 0;
 		this.textScore;
+
+		
 	}
 
 	preload() {
@@ -93,6 +95,28 @@ export default class GameSetting extends Phaser.Scene {
 			fixedWidth: "120"
 		});
 
+		// 	const spawnPoint = [
+		// 	{x: 100, y: 200},
+		// 	{x: 300, y: 200},
+		// 	{x: 500, y: 400}
+		// ];
+
+		// spawnPoint.forEach(point => {
+		// 	this.add.sprite(point.x, point.y, 'rings');
+		// })
+
+		//     this.rings = this.add.group();
+
+    for (let i = 0; i < 15; i++) {
+        let randomX = Phaser.Math.Between(50, 1900);
+        let randomY = Phaser.Math.Between(50, 1050);
+
+		let singleRing = new Rings(this, randomX, randomY);
+		singleRing.setScale(0.8);
+        
+    }
+
+
 		this.fpsShow = this.add.text(1800, 23, "FPS", {
 			font: "25px Arial",
 			fill: "#ffffff",
@@ -131,4 +155,6 @@ export default class GameSetting extends Phaser.Scene {
 		this.textScore.setText(`Score: ${this.points}`)
 
 	}
+
+	
 }
