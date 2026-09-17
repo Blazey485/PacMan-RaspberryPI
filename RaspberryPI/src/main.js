@@ -18,7 +18,7 @@ let config = {
 	// fps: {
 	// 	limit: 30
 	// },
-
+	type: Phaser.CANVAS,
 	physics: {
 		default: "arcade",
 		arcade: {
