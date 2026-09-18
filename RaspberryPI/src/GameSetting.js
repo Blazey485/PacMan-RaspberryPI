@@ -50,18 +50,6 @@ export default class GameSetting extends Phaser.Scene {
 
 	create() {
 		loadAnimations(this);
-
-		const map = this.make.tilemap({ key: "TiledMap" });
-		const tileset = map.addTilesetImage(
-			"Bakgrunn2",
-			"background"
-		);
-		const groundLayer = map.createLayer(
-			"Tile Layer 1",
-			tileset,
-			0,
-			0
-		);
 		// const grid = this.add.grid(
 		// 	960,
 		// 	540, // x og y senterkoordinatene av gridden på skjermen
@@ -80,6 +68,18 @@ export default class GameSetting extends Phaser.Scene {
 		// 	.setDisplaySize(1900, 1050)
 		// 	.setOrigin(-0.3, -0.2);
 
+		const map = this.make.tilemap({ key: "TiledMap" });
+		const tileset = map.addTilesetImage(
+			"Bakgrunn2",
+			"background"
+		);
+		const groundLayer = map.createLayer(
+			"Tile Layer 1",
+			tileset,
+			0,
+			0
+		);
+
 		//- rings config
 		this.rings = new Rings(this, 385, 290);
 		this.rings.setScale(0.8);
@@ -91,10 +91,6 @@ export default class GameSetting extends Phaser.Scene {
 
 		//- EGGMAN CONFIGS
 		this.eggman = new Eggman(this, 1900, 692, this.player);
-
-		groundLayer.setCollisionByExclusion([0]);
-		this.physics.add.collider(this.player, groundLayer);
-		this.physics.add.collider(this.eggman, groundLayer);
 
 		// Overlap detection
 		this.physics.add.overlap(
@@ -128,6 +124,12 @@ export default class GameSetting extends Phaser.Scene {
 		this.fpsShow.setText(
 			Math.round(this.game.loop.actualFps)
 		);
+
+
+		groundLayer.setCollision([318, 346, 232, 620, 660]);
+		this.physics.add.collider(this.player, groundLayer);
+		this.physics.add.collider(this.eggman, groundLayer);
+
 	}
 
 	update(time, delta) {
