@@ -15,6 +15,7 @@ import ringsJSON from "./utils/Ring.json";
 import rings from "./utils/Ring.png";
 
 import bg from "./utils/Bakgrunn2.png";
+import Map from "./utils/Map.json";
 
 import Eggman from "./Eggman.js";
 import Sonic from "./Sonic.js";
@@ -34,6 +35,7 @@ export default class GameSetting extends Phaser.Scene {
 
 	preload() {
 		this.load.image("background", bg);
+		this.load.tilemapTiledJSON("TiledMap", Map);
 		//hvor vi initiater sprites
 		this.load.atlas("eggmanNPC", eggman, eggmanJSON);
 		this.load.atlas("sonicPlayer", sonicPNG, sonicJSON);
@@ -48,24 +50,35 @@ export default class GameSetting extends Phaser.Scene {
 
 	create() {
 		loadAnimations(this);
+		// const grid = this.add.grid(
+		// 	960,
+		// 	540, // x og y senterkoordinatene av gridden på skjermen
+		// 	1900,
+		// 	1050, // w og h av hele gridden
+		// 	50,
+		// 	50, // cell w og h
+		// 	0x000000,
+		// 	1, // fill farge, fill transparency
+		// 	0xffffff,
+		// 	1 // outline farge, på de strekene
+		// );
 
-		const grid = this.add.grid(
-			960,
-			540, // x og y senterkoordinatene av gridden på skjermen
-			1900,
-			1050, // w og h av hele gridden
-			50,
-			50, // cell w og h
-			0x000000,
-			1, // fill farge, fill transparency
-			0xffffff,
-			1 // outline farge, på de strekene
+		// this.add
+		// 	.sprite(-556, -196, "background")
+		// 	.setDisplaySize(1900, 1050)
+		// 	.setOrigin(-0.3, -0.2);
+
+		const map = this.make.tilemap({ key: "TiledMap" });
+		const tileset = map.addTilesetImage(
+			"Bakgrunn2",
+			"background"
 		);
-
-		this.add
-			.sprite(-556, -196, "background")
-			.setDisplaySize(1900, 1050)
-			.setOrigin(-0.3, -0.2);
+		const groundLayer = map.createLayer(
+			"Tile Layer 1",
+			tileset,
+			0,
+			0
+		);
 
 		//- rings config
 		this.rings = new Rings(this, 385, 290);
@@ -95,27 +108,13 @@ export default class GameSetting extends Phaser.Scene {
 			fixedWidth: "120"
 		});
 
-		// 	const spawnPoint = [
-		// 	{x: 100, y: 200},
-		// 	{x: 300, y: 200},
-		// 	{x: 500, y: 400}
-		// ];
+		for (let i = 0; i < 15; i++) {
+			let randomX = Phaser.Math.Between(50, 1900);
+			let randomY = Phaser.Math.Between(50, 1050);
 
-		// spawnPoint.forEach(point => {
-		// 	this.add.sprite(point.x, point.y, 'rings');
-		// })
-
-		//     this.rings = this.add.group();
-
-    for (let i = 0; i < 15; i++) {
-        let randomX = Phaser.Math.Between(50, 1900);
-        let randomY = Phaser.Math.Between(50, 1050);
-
-		let singleRing = new Rings(this, randomX, randomY);
-		singleRing.setScale(0.8);
-        
-    }
-
+			let singleRing = new Rings(this, randomX, randomY);
+			singleRing.setScale(0.8);
+		}
 
 		this.fpsShow = this.add.text(1800, 23, "FPS", {
 			font: "25px Arial",
@@ -125,6 +124,12 @@ export default class GameSetting extends Phaser.Scene {
 		this.fpsShow.setText(
 			Math.round(this.game.loop.actualFps)
 		);
+
+
+		groundLayer.setCollision([318, 346, 232, 620, 660]);
+		this.physics.add.collider(this.player, groundLayer);
+		this.physics.add.collider(this.eggman, groundLayer);
+
 	}
 
 	update(time, delta) {
