@@ -126,7 +126,7 @@ export default class GameSetting extends Phaser.Scene {
 		);
 
 
-		groundLayer.setCollision([318, 346, 232, 620, 660]);
+		groundLayer.setCollision([318]);
 		this.physics.add.collider(this.player, groundLayer);
 		this.physics.add.collider(this.eggman, groundLayer);
 
