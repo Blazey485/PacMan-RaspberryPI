@@ -9,6 +9,7 @@ let config = {
 	parent: "game",
 	backgroundColor: "#2d2d2d",
 	input: {
+		keyboard: true,
 		gamepad: true
 	},
 	scale: {
