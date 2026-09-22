@@ -7,7 +7,7 @@ export default class Eggman
 		super(scene, x, y, "eggmanNPC");
 
 		scene.add.existing(this);
-		this.setScale(1.2);
+		this.setScale(0.8);
 		scene.physics.add.existing(this);
 		this.target = target;
 		this.speed = 150;
@@ -40,4 +40,5 @@ export default class Eggman
 			this.body.setVelocity(0, 0);
 		}
 	}
+
 }
