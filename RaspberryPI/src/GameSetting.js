@@ -86,9 +86,9 @@ export default class GameSetting extends Phaser.Scene {
 			fixedWidth: "120"
 		});
 
-		for (let i = 0; i < 15; i++) {
-			let randomX = Phaser.Math.Between(50, 1900);
-			let randomY = Phaser.Math.Between(50, 1050);
+		for (let i = 0; i < 100; i++) {
+			let randomX = Phaser.Math.Between(70, 1836);
+			let randomY = Phaser.Math.Between(70, 980);
 
 			let singleRing = new Rings(this, randomX, randomY);
 			singleRing.setScale(0.8);
@@ -131,7 +131,6 @@ export default class GameSetting extends Phaser.Scene {
 
 	targetHit(player, ring) {
 		ring.disableBody(true, true); 
-		// this.points += 10;
 		this.points++;
 		this.textScore.setText(`Score: ${this.points}`)
 
