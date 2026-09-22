@@ -32,12 +32,15 @@ export default class Eggman
 			this.scene.physics.moveToObject(
 				this,
 				this.target,
-				this.speed
+				this.speed,
+				this.body.setSize(20, 20, true)
 			);
 			this.setFlipX(this.target.x < this.x);
 			this.anims.play("eggman_anime", true);
 		} else {
 			this.body.setVelocity(0, 0);
+			this.body.setSize(20, 20, true);
+
 		}
 	}
 }
