@@ -8,7 +8,7 @@ export const loadAnimations = (scene) => {
 			end: 7,
 			zeroPad: 0
 		}),
-		frameRate: 15,
+		frameRate: 10,
 		repeat: -1
 	});
 

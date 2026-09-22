@@ -11,12 +11,10 @@ export default class Rings
 
 		this.anims.play("rings_anime", true);
 
-
+		this.setCollideWorldBounds(true);
 	}
 
 	update(time, delta) {}
-
-	
 }
 
 
