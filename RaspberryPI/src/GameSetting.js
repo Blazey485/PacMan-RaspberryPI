@@ -70,10 +70,27 @@ export default class GameSetting extends Phaser.Scene {
 		//- EGGMAN CONFIGS
 		this.eggman = new Eggman(this, 1700, 692, this.player);
 
+		this.ringsGroup = this.physics.add.group();
+
+		const spawnRing = (x, y) => {
+			const ring = new Rings(this, x, y);
+			ring.setScale(0.8);
+			this.ringsGroup.add(ring);
+			return ring;
+		};
+
+		spawnRing(385, 290);
+
+		for (let i = 0; i < 40; i++) {
+			const randomX = Phaser.Math.Between(70, 1836);
+			const randomY = Phaser.Math.Between(70, 980);
+			spawnRing(randomX, randomY);
+		}
+
 		// Overlap detection
 		this.physics.add.overlap(
 			this.player,
-			this.rings,
+			this.ringsGroup,
 			this.targetHit,
 			null,
 			this
@@ -85,14 +102,6 @@ export default class GameSetting extends Phaser.Scene {
 			backgroundColor: "#5abd46",
 			fixedWidth: "120"
 		});
-
-		for (let i = 0; i < 15; i++) {
-			let randomX = Phaser.Math.Between(50, 1900);
-			let randomY = Phaser.Math.Between(50, 1050);
-
-			let singleRing = new Rings(this, randomX, randomY);
-			singleRing.setScale(0.8);
-		}
 
 		this.fpsShow = this.add.text(1800, 23, "FPS", {
 			font: "25px Arial",
@@ -106,6 +115,18 @@ export default class GameSetting extends Phaser.Scene {
 		groundLayer.setCollision([318]);
 		this.physics.add.collider(this.player, groundLayer);
 		this.physics.add.collider(this.eggman, groundLayer);
+		this.physics.add.collider(this.rings, groundLayer);
+
+		this.Rings = this.physics.add.staticGroup();
+		this.physics.add.overlap(
+			this.player,
+			this.Rings,
+			(player, rings) => {
+				rings.disableBody(true, true);
+				score += 1;
+				scoreText.setText(`Score: `);
+			}
+		);
 	}
 
 	update(time, delta) {
@@ -117,25 +138,24 @@ export default class GameSetting extends Phaser.Scene {
 			this.eggman.update(time, delta);
 		}
 
-		if (this.rings) {
-			this.rings.update(time, delta);
-		}
+	if (this.ringsGroup) {
+		this.ringsGroup.getChildren().forEach((ring) => {
+			if (ring && ring.active && ring.update) {
+				ring.update(time, delta);
+			}
+		});
+	}
 
 		if (this.fpsShow) {
 			this.fpsShow.setText(
 				`FPS: ${Math.round(this.game.loop.actualFps)}`
 			);
 		}
-		
 	}
 
 	targetHit(player, ring) {
-		ring.disableBody(true, true); 
-		// this.points += 10;
+		ring.disableBody(true, true);
 		this.points++;
-		this.textScore.setText(`Score: ${this.points}`)
-
+		this.textScore.setText(`Score: ${this.points}`);
 	}
-
-	
 }
