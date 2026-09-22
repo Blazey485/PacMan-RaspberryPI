@@ -35,3 +35,6 @@ SFX
 high score/ baord. 
 
 og chaos gems for å gjøre sånn at han kan spise eggman 
+
+
+joysticken bruker en vanlig xbox/ps controller, knapper bruker b0 til b3. 
