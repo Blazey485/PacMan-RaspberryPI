@@ -138,13 +138,13 @@ export default class GameSetting extends Phaser.Scene {
 			this.eggman.update(time, delta);
 		}
 
-		if (this.ringsGroup) {
-			this.ringsGroup.getChildren().forEach((ring) => {
-				if (ring && ring.active && ring.update) {
-					ring.update(time, delta);
-				}
-			});
-		}
+	if (this.ringsGroup) {
+		this.ringsGroup.getChildren().forEach((ring) => {
+			if (ring && ring.active && ring.update) {
+				ring.update(time, delta);
+			}
+		});
+	}
 
 		if (this.fpsShow) {
 			this.fpsShow.setText(

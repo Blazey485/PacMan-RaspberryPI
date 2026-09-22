@@ -110,5 +110,33 @@ export default class Sonic
 
 			console.log(navigator.getGamepads());
 		}
+
+		// if (
+		// 	this.keys.left.isDown ||
+		// 	this.keys.arrowLeft.isDown
+		// ) {
+		// 	this.setVelocity(-this.speed, 0);
+		// 	this.setFlipX(true);
+		// 	this.anims.play("sonic_Player", true);
+		// } else if (
+		// 	this.keys.right.isDown ||
+		// 	this.keys.arrowRight.isDown
+		// ) {
+		// 	this.setVelocity(this.speed, 0);
+		// 	this.setFlipX(false);
+		// 	this.anims.play("sonic_Player", true);
+		// } else if (
+		// 	this.keys.up.isDown ||
+		// 	this.keys.arrowUp.isDown
+		// ) {
+		// 	this.setVelocity(0, -this.speed);
+		// 	this.anims.play("sonic_Player", true);
+		// } else if (
+		// 	this.keys.down.isDown ||
+		// 	this.keys.arrowDown.isDown
+		// ) {
+		// 	this.setVelocity(0, this.speed);
+		// 	this.anims.play("sonic_Player", true);
+		// }
 	}
 }

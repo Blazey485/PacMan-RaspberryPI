@@ -26,15 +26,17 @@ things we need:
 map
 
 
-ringer for at sonic samler dem. 
 
 
 
-SFX
 
-high score/ baord. 
+high score/ board. 
 
 og chaos gems for å gjøre sånn at han kan spise eggman 
 
+<<<<<<< HEAD
 
 joysticken bruker en vanlig xbox/ps controller, knapper bruker b0 til b3. 
+=======
+SFX
+>>>>>>> fe639bc6c5eb72c663996e9eb7e81c70800dd3ff
