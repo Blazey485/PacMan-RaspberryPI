@@ -15,7 +15,6 @@ export default class Sonic
 		this.body.setSize(30, 30);
 		this.setCollideWorldBounds(true);
 
-
 		this.speed = 200;
 
 		this.keys = scene.input.keyboard.addKeys({
@@ -28,6 +27,9 @@ export default class Sonic
 			arrowLeft: Phaser.Input.Keyboard.KeyCodes.LEFT,
 			arrowRight: Phaser.Input.Keyboard.KeyCodes.RIGHT
 		});
+
+		console.log(navigator.getGamepads());
+
 	}
 
 	preload() {
@@ -49,6 +51,7 @@ export default class Sonic
 			this.body.setSize(30, 30);
 
 
+		console.log(navigator.getGamepads());
 
 
 		} else if (
@@ -89,6 +92,7 @@ export default class Sonic
 			this.setCollideWorldBounds(true);
 
 this.body.setSize(30, 30);
+		console.log(navigator.getGamepads());
 
 		}
 	}
