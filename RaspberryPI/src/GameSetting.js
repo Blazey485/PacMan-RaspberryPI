@@ -29,8 +29,6 @@ export default class GameSetting extends Phaser.Scene {
 		this.eggman = null;
 		this.points = 0;
 		this.textScore;
-
-		
 	}
 
 	preload() {
@@ -50,23 +48,6 @@ export default class GameSetting extends Phaser.Scene {
 
 	create() {
 		loadAnimations(this);
-		// const grid = this.add.grid(
-		// 	960,
-		// 	540, // x og y senterkoordinatene av gridden på skjermen
-		// 	1900,
-		// 	1050, // w og h av hele gridden
-		// 	50,
-		// 	50, // cell w og h
-		// 	0x000000,
-		// 	1, // fill farge, fill transparency
-		// 	0xffffff,
-		// 	1 // outline farge, på de strekene
-		// );
-
-		// this.add
-		// 	.sprite(-556, -196, "background")
-		// 	.setDisplaySize(1900, 1050)
-		// 	.setOrigin(-0.3, -0.2);
 
 		const map = this.make.tilemap({ key: "TiledMap" });
 		const tileset = map.addTilesetImage(
@@ -85,9 +66,6 @@ export default class GameSetting extends Phaser.Scene {
 		this.rings.setScale(0.8);
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
-		console.log(
-			this.textures.get("sonicPlayer").getFrameNames()
-		);
 
 		//- EGGMAN CONFIGS
 		this.eggman = new Eggman(this, 1700, 692, this.player);
@@ -125,11 +103,9 @@ export default class GameSetting extends Phaser.Scene {
 			Math.round(this.game.loop.actualFps)
 		);
 
-
 		groundLayer.setCollision([318]);
 		this.physics.add.collider(this.player, groundLayer);
 		this.physics.add.collider(this.eggman, groundLayer);
-
 	}
 
 	update(time, delta) {
