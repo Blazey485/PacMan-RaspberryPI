@@ -9,10 +9,9 @@ export default class Sonic
 		scene.add.existing(this);
 		scene.physics.add.existing(this);
 
-		// this.setScale(0.3);
 		this.setScale(1.8);
+		this.body.setSize(20, 20, true);
 
-		this.body.setSize(30, 30);
 		this.setCollideWorldBounds(true);
 
 		this.speed = 200;
@@ -29,7 +28,6 @@ export default class Sonic
 		});
 
 		console.log(navigator.getGamepads());
-
 	}
 
 	preload() {
@@ -48,10 +46,10 @@ export default class Sonic
 			this.setScale(1.8);
 			this.setCollideWorldBounds(true);
 
-			this.body.setSize(30, 30);
 
+			this.body.setSize(20, 20, true);
 
-		console.log(navigator.getGamepads());
+			console.log(navigator.getGamepads());
 
 
 		} else if (
@@ -65,7 +63,8 @@ export default class Sonic
 			this.setScale(1.8);
 			this.setCollideWorldBounds(true);
 
-			this.body.setSize(30, 30);
+			this.body.setSize(20, 20, true);
+
 
 		}
 
@@ -79,7 +78,8 @@ export default class Sonic
 			this.setScale(0.5, 0.3);
 		this.setCollideWorldBounds(true);
 
-		this.body.setSize(30, 30);
+			this.body.setSize(20, 20, true);
+
 
 
 		} else if (
@@ -91,8 +91,9 @@ export default class Sonic
 			this.setScale(0.5, 0.3);
 			this.setCollideWorldBounds(true);
 
-this.body.setSize(30, 30);
-		console.log(navigator.getGamepads());
+			this.body.setSize(20, 20, true);
+
+			console.log(navigator.getGamepads());
 
 		}
 	}

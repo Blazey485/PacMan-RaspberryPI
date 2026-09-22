@@ -90,7 +90,7 @@ export default class GameSetting extends Phaser.Scene {
 		);
 
 		//- EGGMAN CONFIGS
-		this.eggman = new Eggman(this, 1900, 692, this.player);
+		this.eggman = new Eggman(this, 1700, 692, this.player);
 
 		// Overlap detection
 		this.physics.add.overlap(
