@@ -79,11 +79,39 @@ export default class GameSetting extends Phaser.Scene {
 			return ring;
 		};
 
-		spawnRing(385, 290);
+		//original ring
+		// spawnRing(1000, 100000);
+
+		let randomX = Phaser.Math.Between(70, 1836);
+		let randomY = Phaser.Math.Between(70, 980);
+
+		let tile = groundLayer.getTileAtWorldXY(
+			randomX,
+			randomY
+		);
 
 		for (let i = 0; i < 40; i++) {
-			const randomX = Phaser.Math.Between(70, 1836);
-			const randomY = Phaser.Math.Between(70, 980);
+			let randomX;
+			let randomY;
+			let tile;
+			let attempts = 0;
+
+			// Keep generating new coordinates UNTIL we land on a safe spot
+			do {
+				randomX = Phaser.Math.Between(70, 1836);
+				randomY = Phaser.Math.Between(70, 980);
+				tile = groundLayer.getTileAtWorldXY(
+					randomX,
+					randomY
+				);
+				attempts++;
+			} while (
+				tile &&
+				tile.index === 318 &&
+				attempts < 100
+			);
+
+			// Once we exit the do...while loop, spawn the ring at the valid coordinates
 			spawnRing(randomX, randomY);
 		}
 
