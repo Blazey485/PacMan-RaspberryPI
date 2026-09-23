@@ -9,7 +9,7 @@ export default class Rings
 		scene.add.existing(this);
 		scene.physics.add.existing(this);
 
-
+		this.anims.play("rings_anime", true);
 
 		this.setCollideWorldBounds(true);
 	}

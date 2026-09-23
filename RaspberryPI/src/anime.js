@@ -8,8 +8,9 @@ export const loadAnimations = (scene) => {
 			end: 7,
 			zeroPad: 0
 		}),
-		frameRate: 10,
-		repeat: -1
+		frameRate: 6,
+		repeat: -1,
+		repeatDelay: 2000
 	});
 
 	scene.anims.create({
