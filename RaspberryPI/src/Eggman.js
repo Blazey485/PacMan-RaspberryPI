@@ -12,6 +12,7 @@ export default class Eggman
 		this.target = target;
 		this.speed = 150;
 		this.setCollideWorldBounds(true);
+		this.setDepth(1);
 	}
 
 	preload() {

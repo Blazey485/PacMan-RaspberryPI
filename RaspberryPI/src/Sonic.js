@@ -29,6 +29,8 @@ export default class Sonic
 		});
 
 		this.deadzone = 0.25;
+		this.setDepth(1);
+
 	}
 
 	preload() {
