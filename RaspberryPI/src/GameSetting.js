@@ -28,7 +28,7 @@ export default class GameSetting extends Phaser.Scene {
 		this.player = null;
 		this.eggman = null;
 		this.points = 0;
-		this.textScore;
+
 	}
 
 	preload() {
@@ -62,8 +62,8 @@ export default class GameSetting extends Phaser.Scene {
 		);
 
 		//- rings config
-		this.rings = new Rings(this, 385, 290);
-		this.rings.setScale(0.8);
+		this.rings = new Rings(this);
+		this.rings.setScale(0);
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
 
@@ -74,7 +74,7 @@ export default class GameSetting extends Phaser.Scene {
 
 		const spawnRing = (x, y) => {
 			const ring = new Rings(this, x, y);
-			ring.setScale(0.8);
+			ring.setScale(0.6);
 			this.ringsGroup.add(ring);
 			return ring;
 		};
@@ -82,46 +82,17 @@ export default class GameSetting extends Phaser.Scene {
 		//original ring
 		// spawnRing(1000, 100000);
 
-		let randomX = Phaser.Math.Between(70, 1836);
-		let randomY = Phaser.Math.Between(70, 980);
 
-		let tile = groundLayer.getTileAtWorldXY(
-			randomX,
-			randomY
-		);
 
-		for (let i = 0; i < 40; i++) {
-			let randomX;
-			let randomY;
-			let tile;
-			let attempts = 0;
+	groundLayer.forEachTile((tile) => {
+		// Check if the tile exists and is NOT tile 318
+		if (tile && tile.index !== 318) {
+			const centerX = tile.pixelX + tile.width / 2;
+			const centerY = tile.pixelY + tile.height / 2;
 
-			// Keep generating new coordinates UNTIL we land on a safe spot
-			do {
-				randomX = Phaser.Math.Between(70, 1836);
-				randomY = Phaser.Math.Between(70, 980);
-				tile = groundLayer.getTileAtWorldXY(
-					randomX,
-					randomY
-				);
-				attempts++;
-			} while (
-				tile &&
-				tile.index === 318 &&
-				attempts < 100
-			);
-			if (tile) {
-				const centerX = tile.pixelX + tile.width / 2;
-				const centerY = tile.pixelY + tile.height / 2;
-
-				// 3. Spawn the ring in the center of that tile!
-				spawnRing(centerX, centerY);
-			}
-
-			// Once we exit the do...while loop, spawn the ring at the valid coordinates
-			spawnRing(randomX, randomY);
+			spawnRing(centerX, centerY);
 		}
-
+	});
 		// Overlap detection
 		this.physics.add.overlap(
 			this.player,
