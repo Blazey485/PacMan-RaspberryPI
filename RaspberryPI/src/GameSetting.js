@@ -28,7 +28,7 @@ export default class GameSetting extends Phaser.Scene {
 		this.player = null;
 		this.eggman = null;
 		this.points = 0;
-		this.textScore;
+
 	}
 
 	preload() {
@@ -62,8 +62,8 @@ export default class GameSetting extends Phaser.Scene {
 		);
 
 		//- rings config
-		this.rings = new Rings(this, 385, 290);
-		this.rings.setScale(0.8);
+		this.rings = new Rings(this);
+		this.rings.setScale(0);
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
 
@@ -74,19 +74,26 @@ export default class GameSetting extends Phaser.Scene {
 
 		const spawnRing = (x, y) => {
 			const ring = new Rings(this, x, y);
-			ring.setScale(0.8);
+			ring.setScale(0.6);
 			this.ringsGroup.add(ring);
 			return ring;
 		};
 
-		spawnRing(385, 290);
+		//original ring
+		// spawnRing(1000, 100000);
 
-		for (let i = 0; i < 40; i++) {
-			const randomX = Phaser.Math.Between(70, 1836);
-			const randomY = Phaser.Math.Between(70, 980);
-			spawnRing(randomX, randomY);
+
+	const blockedTile = [318, 660];
+
+	groundLayer.forEachTile((tile) => {
+		// Check if the tile exists and is NOT tile 318
+		if (tile && !blockedTile.includes(tile.index)) {
+			const centerX = tile.pixelX + tile.width / 2;
+			const centerY = tile.pixelY + tile.height / 2;
+
+			spawnRing(centerX, centerY);
 		}
-
+	});
 		// Overlap detection
 		this.physics.add.overlap(
 			this.player,
@@ -127,6 +134,21 @@ export default class GameSetting extends Phaser.Scene {
 				scoreText.setText(`Score: `);
 			}
 		);
+
+		//! added map temp mainly cus we need to know if those rings spawn in the middle or not
+		const grid = this.add.grid(
+			960 + -11,
+			540 + -14, // x og y senterkoordinatene av gridden på skjermen
+			1900,
+			1050, // w og h av hele gridden
+			50,
+			50, // cell w og h
+			0x000000,
+			0,
+			0xffffff,
+			1 // outline farge, på de strekene
+		);
+
 	}
 
 	update(time, delta) {
