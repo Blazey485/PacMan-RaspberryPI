@@ -83,10 +83,11 @@ export default class GameSetting extends Phaser.Scene {
 		// spawnRing(1000, 100000);
 
 
+	const blockedTile = [318, 660];
 
 	groundLayer.forEachTile((tile) => {
 		// Check if the tile exists and is NOT tile 318
-		if (tile && tile.index !== 318) {
+		if (tile && !blockedTile.includes(tile.index)) {
 			const centerX = tile.pixelX + tile.width / 2;
 			const centerY = tile.pixelY + tile.height / 2;
 
