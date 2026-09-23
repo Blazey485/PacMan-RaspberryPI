@@ -110,6 +110,13 @@ export default class GameSetting extends Phaser.Scene {
 				tile.index === 318 &&
 				attempts < 100
 			);
+			if (tile) {
+				const centerX = tile.pixelX + tile.width / 2;
+				const centerY = tile.pixelY + tile.height / 2;
+
+				// 3. Spawn the ring in the center of that tile!
+				spawnRing(centerX, centerY);
+			}
 
 			// Once we exit the do...while loop, spawn the ring at the valid coordinates
 			spawnRing(randomX, randomY);
@@ -155,6 +162,21 @@ export default class GameSetting extends Phaser.Scene {
 				scoreText.setText(`Score: `);
 			}
 		);
+
+		//! added map temp mainly cus we need to know if those rings spawn in the middle or not
+		const grid = this.add.grid(
+			960 + -11,
+			540 + -14, // x og y senterkoordinatene av gridden på skjermen
+			1900,
+			1050, // w og h av hele gridden
+			50,
+			50, // cell w og h
+			0x000000,
+			0,
+			0xffffff,
+			1 // outline farge, på de strekene
+		);
+
 	}
 
 	update(time, delta) {
