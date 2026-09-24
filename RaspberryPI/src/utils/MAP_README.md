@@ -27,7 +27,7 @@ so i made a template for the first 10 layers so test, found the gap between each
 | **12th Layer** | `425` | `462` | 38 |
 | **13th Layer** | `463` | `500` | 38 |
 | **14th Layer** | `501` | `538` | 38 |
-| **15th Layer** | `539` | `576` |38 |
+| **15th Layer** | `576` | 38 |
 | **16th Layer** | `577` | `614` | 38 |
 | **17th Layer** | `615` | `652` | 38 |
 | **18th Layer** | `653` | `690` | 38 |
