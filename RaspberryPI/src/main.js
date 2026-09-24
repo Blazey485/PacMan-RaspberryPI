@@ -3,12 +3,13 @@ import gameSetting from "./GameSetting.js";
 
 //størrelse på skjermen/spillet og bascially alt config
 let config = {
-	type: Phaser.AUTO,
+	type: Phaser.WEBGL,
 	width: 1920,
 	height: 1080,
 	parent: "game",
 	backgroundColor: "#2d2d2d",
 	input: {
+		keyboard: true,
 		gamepad: true
 	},
 	scale: {
@@ -23,7 +24,7 @@ let config = {
 		default: "arcade",
 		arcade: {
 			gravity: { y: 0 },
-			debug: true
+
 		}
 	},
 	scene: [gameSetting]

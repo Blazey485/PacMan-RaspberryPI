@@ -28,9 +28,7 @@ export default class GameSetting extends Phaser.Scene {
 		this.player = null;
 		this.eggman = null;
 		this.points = 0;
-		this.textScore;
 
-		
 	}
 
 	preload() {
@@ -50,23 +48,6 @@ export default class GameSetting extends Phaser.Scene {
 
 	create() {
 		loadAnimations(this);
-		// const grid = this.add.grid(
-		// 	960,
-		// 	540, // x og y senterkoordinatene av gridden på skjermen
-		// 	1900,
-		// 	1050, // w og h av hele gridden
-		// 	50,
-		// 	50, // cell w og h
-		// 	0x000000,
-		// 	1, // fill farge, fill transparency
-		// 	0xffffff,
-		// 	1 // outline farge, på de strekene
-		// );
-
-		// this.add
-		// 	.sprite(-556, -196, "background")
-		// 	.setDisplaySize(1900, 1050)
-		// 	.setOrigin(-0.3, -0.2);
 
 		const map = this.make.tilemap({ key: "TiledMap" });
 		const tileset = map.addTilesetImage(
@@ -81,21 +62,42 @@ export default class GameSetting extends Phaser.Scene {
 		);
 
 		//- rings config
-		this.rings = new Rings(this, 385, 290);
-		this.rings.setScale(0.8);
+		this.rings = new Rings(this);
+		this.rings.setScale(0);
 		//- SONIC CONFIGS
 		this.player = new Sonic(this, 985, 540);
-		console.log(
-			this.textures.get("sonicPlayer").getFrameNames()
-		);
 
 		//- EGGMAN CONFIGS
-		this.eggman = new Eggman(this, 1900, 692, this.player);
+		this.eggman = new Eggman(this, 1700, 692, this.player);
 
+		this.ringsGroup = this.physics.add.group();
+
+		const spawnRing = (x, y) => {
+			const ring = new Rings(this, x, y);
+			ring.setScale(0.6);
+			this.ringsGroup.add(ring);
+			return ring;
+		};
+
+		//original ring
+		// spawnRing(1000, 100000);
+
+
+	const blockedTile = [318, 660];
+
+	groundLayer.forEachTile((tile) => {
+		// Check if the tile exists and is NOT tile 318
+		if (tile && !blockedTile.includes(tile.index)) {
+			const centerX = tile.pixelX + tile.width / 2;
+			const centerY = tile.pixelY + tile.height / 2;
+
+			spawnRing(centerX, centerY);
+		}
+	});
 		// Overlap detection
 		this.physics.add.overlap(
 			this.player,
-			this.rings,
+			this.ringsGroup,
 			this.targetHit,
 			null,
 			this
@@ -108,14 +110,6 @@ export default class GameSetting extends Phaser.Scene {
 			fixedWidth: "120"
 		});
 
-		for (let i = 0; i < 15; i++) {
-			let randomX = Phaser.Math.Between(50, 1900);
-			let randomY = Phaser.Math.Between(50, 1050);
-
-			let singleRing = new Rings(this, randomX, randomY);
-			singleRing.setScale(0.8);
-		}
-
 		this.fpsShow = this.add.text(1800, 23, "FPS", {
 			font: "25px Arial",
 			fill: "#ffffff",
@@ -125,10 +119,35 @@ export default class GameSetting extends Phaser.Scene {
 			Math.round(this.game.loop.actualFps)
 		);
 
-
 		groundLayer.setCollision([318]);
 		this.physics.add.collider(this.player, groundLayer);
 		this.physics.add.collider(this.eggman, groundLayer);
+		this.physics.add.collider(this.rings, groundLayer);
+
+		this.Rings = this.physics.add.staticGroup();
+		this.physics.add.overlap(
+			this.player,
+			this.Rings,
+			(player, rings) => {
+				rings.disableBody(true, true);
+				score += 1;
+				scoreText.setText(`Score: `);
+			}
+		);
+
+		//! added map temp mainly cus we need to know if those rings spawn in the middle or not
+		const grid = this.add.grid(
+			960 + -11,
+			540 + -14, // x og y senterkoordinatene av gridden på skjermen
+			1900,
+			1050, // w og h av hele gridden
+			50,
+			50, // cell w og h
+			0x000000,
+			0,
+			0xffffff,
+			1 // outline farge, på de strekene
+		);
 
 	}
 
@@ -141,25 +160,24 @@ export default class GameSetting extends Phaser.Scene {
 			this.eggman.update(time, delta);
 		}
 
-		if (this.rings) {
-			this.rings.update(time, delta);
-		}
+	if (this.ringsGroup) {
+		this.ringsGroup.getChildren().forEach((ring) => {
+			if (ring && ring.active && ring.update) {
+				ring.update(time, delta);
+			}
+		});
+	}
 
 		if (this.fpsShow) {
 			this.fpsShow.setText(
 				`FPS: ${Math.round(this.game.loop.actualFps)}`
 			);
 		}
-		
 	}
 
 	targetHit(player, ring) {
-		ring.disableBody(true, true); 
-		// this.points += 10;
+		ring.disableBody(true, true);
 		this.points++;
-		this.textScore.setText(`Score: ${this.points}`)
-
+		this.textScore.setText(`Score: ${this.points}`);
 	}
-
-	
 }
