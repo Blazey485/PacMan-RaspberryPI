@@ -13,6 +13,7 @@ so i made a template for the first 10 layers so test, found the gap between each
 
 | Layer  | Start Line | End Line | Total Lines |
 
+
 | **1st Layer** | `7` | `44` | 38 |
 | **2nd Layer** | `45` | `82` | 38 |
 | **3rd Layer** | `83` | `120` | 38 |
@@ -35,7 +36,8 @@ so i made a template for the first 10 layers so test, found the gap between each
 | **20th Layer** | `729` | `766` | 38 |
 | **21st Layer** | `767` | `804` | 38 |
 
----
+
+
 
 ### 📝 Detailed Breakdown (with Better Comments syntax)
 
