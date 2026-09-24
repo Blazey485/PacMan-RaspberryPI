@@ -112,6 +112,14 @@ export default class GameSetting extends Phaser.Scene {
 			this
 		);
 
+		this.physics.add.overlap(
+			this.player,
+			this.eggman,
+			this.dead,
+			null,
+			this
+		);
+
 		this.textScore = this.add.text(120, 23, "Score: 0", {
 			font: "25px Arial",
 			fill: "#0e0c0c",
@@ -158,6 +166,15 @@ export default class GameSetting extends Phaser.Scene {
 			0x000000,
 			0.2 // outline farge, på de strekene
 		);
+
+		this.duDodetekst = this.add.text(400, 300, 'DU DØDE', {
+			fontSize: '10vw',
+			display: "flex",
+			fill: '#1eff00',
+			fontStyle: 'bold',
+			align: 'center',
+		}).setOrigin(0.5).setVisible(false);
+
 	}
 
 	update(time, delta) {
@@ -189,4 +206,16 @@ export default class GameSetting extends Phaser.Scene {
 		this.points++;
 		this.textScore.setText(`Score: ${this.points}`);
 	}
+
+
+	dead(eggman, player) {
+		eggman.disableBody(true, true);
+		this.physics.pause();
+		player.setTint(0xff0000);
+		this.duDodetekst.setVisible(true);
+	}
+
+	
+	
+}
 }
