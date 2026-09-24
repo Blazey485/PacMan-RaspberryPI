@@ -29,19 +29,18 @@ export default class Eggman
 			this.target.y
 		);
 
-		if (distance > 100) {
+		if (distance > 0) {
 			this.scene.physics.moveToObject(
 				this,
 				this.target,
 				this.speed,
-				this.body.setSize(20, 20, true)
+				this.body.setSize(15, 15, true)
 			);
 			this.setFlipX(this.target.x < this.x);
 			this.anims.play("eggman_anime", true);
 		} else {
 			this.body.setVelocity(0, 0);
 			this.body.setSize(20, 20, true);
-
 		}
 	}
 }
