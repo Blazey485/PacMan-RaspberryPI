@@ -27,7 +27,7 @@ so i made a template for the first 10 layers so test, found the gap between each
 | **12th Layer** | `425` | `462` | 38 |
 | **13th Layer** | `463` | `500` | 38 |
 | **14th Layer** | `501` | `538` | 38 |
-| **15th Layer** | `576` | 38 |
+| **15th Layer** | `539` | `576` |38 |
 | **16th Layer** | `577` | `614` | 38 |
 | **17th Layer** | `615` | `652` | 38 |
 | **18th Layer** | `653` | `690` | 38 |
@@ -39,14 +39,8 @@ so i made a template for the first 10 layers so test, found the gap between each
 
 ### 📝 Detailed Breakdown (with Better Comments syntax)
 
-<!--
-! 1st Layer: Special base layer (44 lines)
--->
-* **1st Layer:** Starts at line `1` → Ends at line `44`
 
-<!--
-* 2nd to 21st Layers: Standard 38-line blocks
--->
+* **1st Layer:** Starts at line `1` → Ends at line `44`
 * **2nd Layer:** Starts at line `45` → Ends at line `82`
 * **3rd Layer:** Starts at line `83` → Ends at line `120`
 * **4th Layer:** Starts at line `121` → Ends at line `158`
@@ -68,4 +62,3 @@ so i made a template for the first 10 layers so test, found the gap between each
 * **20th Layer:** Starts at line `729` → Ends at line `766`
 * **21st Layer:** Starts at line `767` → Ends at line `804`
 
--->
