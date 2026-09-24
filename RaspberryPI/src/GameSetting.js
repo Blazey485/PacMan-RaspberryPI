@@ -22,6 +22,8 @@ import Sonic from "./Sonic.js";
 import Rings from "./rings.js";
 import { loadAnimations } from "./anime.js";
 
+import music from "./utils/surgeonAttack.mp3"
+
 export default class GameSetting extends Phaser.Scene {
 	constructor() {
 		super("Game");
@@ -44,9 +46,20 @@ export default class GameSetting extends Phaser.Scene {
 			SonicDownJSON
 		);
 		this.load.atlas("rings", rings, ringsJSON);
+
+		// Musikk
+		this.load.audio("music", music);
 	}
 
 	create() {
+		// Musikk
+		this.music = this.sound.add("music", {
+			loop: true,
+			volume: 1
+		});
+	
+		this.music.play();
+
 		loadAnimations(this);
 
 		const map = this.make.tilemap({ key: "TiledMap" });
@@ -79,21 +92,17 @@ export default class GameSetting extends Phaser.Scene {
 			return ring;
 		};
 
-		//original ring
-		// spawnRing(1000, 100000);
+		// 318 is global wall whilst 660 is for the rings only
+		const blockedTile = [318, 660];
 
+		groundLayer.forEachTile((tile) => {
+			if (tile && !blockedTile.includes(tile.index)) {
+				const centerX = tile.pixelX + tile.width / 2;
+				const centerY = tile.pixelY + tile.height / 2;
 
-	const blockedTile = [318, 660];
-
-	groundLayer.forEachTile((tile) => {
-		// Check if the tile exists and is NOT tile 318
-		if (tile && !blockedTile.includes(tile.index)) {
-			const centerX = tile.pixelX + tile.width / 2;
-			const centerY = tile.pixelY + tile.height / 2;
-
-			spawnRing(centerX, centerY);
-		}
-	});
+				spawnRing(centerX, centerY);
+			}
+		});
 		// Overlap detection
 		this.physics.add.overlap(
 			this.player,
@@ -143,6 +152,7 @@ export default class GameSetting extends Phaser.Scene {
 			}
 		);
 
+
 		//! added map temp mainly cus we need to know if those rings spawn in the middle or not
 		const grid = this.add.grid(
 			960 + -11,
@@ -153,8 +163,8 @@ export default class GameSetting extends Phaser.Scene {
 			50, // cell w og h
 			0x000000,
 			0,
-			0xffffff,
-			1 // outline farge, på de strekene
+			0x000000,
+			0.2 // outline farge, på de strekene
 		);
 
 		this.duDodetekst = this.add.text(400, 300, 'DU DØDE', {
@@ -207,4 +217,5 @@ export default class GameSetting extends Phaser.Scene {
 
 	
 	
+}
 }
