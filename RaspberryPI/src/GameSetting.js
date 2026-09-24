@@ -22,6 +22,8 @@ import Sonic from "./Sonic.js";
 import Rings from "./rings.js";
 import { loadAnimations } from "./anime.js";
 
+import music from "./utils/surgeonAttack.mp3"
+
 export default class GameSetting extends Phaser.Scene {
 	constructor() {
 		super("Game");
@@ -44,9 +46,20 @@ export default class GameSetting extends Phaser.Scene {
 			SonicDownJSON
 		);
 		this.load.atlas("rings", rings, ringsJSON);
+
+		// Musikk
+		this.load.audio("music", music);
 	}
 
 	create() {
+		// Musikk
+		this.music = this.sound.add("music", {
+			loop: true,
+			volume: 1
+		});
+	
+		this.music.play();
+
 		loadAnimations(this);
 
 		const map = this.make.tilemap({ key: "TiledMap" });
@@ -130,6 +143,7 @@ export default class GameSetting extends Phaser.Scene {
 				scoreText.setText(`Score: `);
 			}
 		);
+
 
 		//! added map temp mainly cus we need to know if those rings spawn in the middle or not
 		const grid = this.add.grid(

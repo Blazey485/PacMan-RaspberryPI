@@ -13,6 +13,29 @@ so i made a template for the first 10 layers so test, found the gap between each
 
 | Layer  | Start Line | End Line | Total Lines |
 
+<<<<<<<<< Temporary merge branch 1
+| 1st Layer | 7 | 44 | 38 |
+| 2nd Layer | 45 | 82 | 38 |
+| 3rd Layer | 83 | 120 | 38 |
+| 4th Layer | 121 | 158 | 38 |
+| 5th Layer | 159 | 196 | 38 |
+| 6th Layer | 197 | 234 | 38 |
+| 7th Layer | 235 | 272 | 38 |
+| 8th Layer | 273 | 310 | 38 |
+| 9th Layer | 311 | 348 | 38 |
+| 10th Layer | 349 | 386 | 38 |
+| 11th Layer | 387 | 424 | 38 |
+| 12th Layer | 425 | 462 | 38 |
+| 13th Layer | 463 | 500 | 38 |
+| 14th Layer | 501 | 538 | 38 |
+| 15th Layer | 539 | 576 | 38 |
+| 16th Layer | 577 | 614 | 38 |
+| 17th Layer | 615 | 652 | 38 |
+| 18th Layer | 653 | 690 | 38 |
+| 19th Layer | 691 | 728 | 38 |
+| 20th Layer | 729 | 766 | 38 |
+| 21st Layer | 767 | 804 | 38 |
+=========
 | **1st Layer** | `7` | `44` | 38 |
 | **2nd Layer** | `45` | `82` | 38 |
 | **3rd Layer** | `83` | `120` | 38 |
@@ -34,8 +57,8 @@ so i made a template for the first 10 layers so test, found the gap between each
 | **19th Layer** | `691` | `728` | 38 |
 | **20th Layer** | `729` | `766` | 38 |
 | **21st Layer** | `767` | `804` | 38 |
+>>>>>>>>> Temporary merge branch 2
 
----
 
 ### 📝 Detailed Breakdown (with Better Comments syntax)
 
