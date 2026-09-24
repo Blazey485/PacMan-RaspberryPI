@@ -79,21 +79,17 @@ export default class GameSetting extends Phaser.Scene {
 			return ring;
 		};
 
-		//original ring
-		// spawnRing(1000, 100000);
+		// 318 is global wall whilst 660 is for the rings only
+		const blockedTile = [318, 660];
 
-	// 318 is global wall whilst 660 is for the rings only
-	const blockedTile = [318, 660];
+		groundLayer.forEachTile((tile) => {
+			if (tile && !blockedTile.includes(tile.index)) {
+				const centerX = tile.pixelX + tile.width / 2;
+				const centerY = tile.pixelY + tile.height / 2;
 
-	groundLayer.forEachTile((tile) => {
-
-		if (tile && !blockedTile.includes(tile.index)) {
-			const centerX = tile.pixelX + tile.width / 2;
-			const centerY = tile.pixelY + tile.height / 2;
-
-			spawnRing(centerX, centerY);
-		}
-	});
+				spawnRing(centerX, centerY);
+			}
+		});
 		// Overlap detection
 		this.physics.add.overlap(
 			this.player,
@@ -145,10 +141,9 @@ export default class GameSetting extends Phaser.Scene {
 			50, // cell w og h
 			0x000000,
 			0,
-			0xffffff,
-			1 // outline farge, på de strekene
+			0x000000,
+			0.2 // outline farge, på de strekene
 		);
-
 	}
 
 	update(time, delta) {
