@@ -218,4 +218,3 @@ export default class GameSetting extends Phaser.Scene {
 	
 	
 }
-}
