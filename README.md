@@ -30,15 +30,21 @@ git clone [https://github.com/Blazey485/PacMan-RaspberryPI.git](https://github.c
 cd PacMan-RaspberryPI
 ```
 
-##Launch a Local Web Server
-```python3 -m http.server 8080```
+####Launch a Local Web Server
+```bash
+python3 -m http.server 8080
+```
 OR 
-``` npm run dev```
+```bash
+npm run dev
+```
 
 🖥️ Running on Raspberry Pi (Arcade / Kiosk Mode)
 
 To run the game automatically on boot in fullscreen kiosk mode on Raspberry Pi OS:
-```chromium-browser --kiosk --noerrdialogs --disable-infobars http://localhost:8080chromium-browser --kiosk --noerrdialogs --disable-infobars http://localhost:8080 ```
+```bash
+chromium-browser --kiosk --noerrdialogs --disable-infobars http://localhost:8080chromium-browser --kiosk --noerrdialogs --disable-infobars http://localhost:8080 
+```
 
 controls: 
 **WASD** and **ArrowKeys** 
