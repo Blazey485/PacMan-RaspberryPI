@@ -1,42 +1,53 @@
-# PacMan-RaspberryPI
+# 🟡 Pac-Man for Raspberry Pi (Phaser.js)
 
-Så Vi tenkte å bruke phraser.js for å kode 2d spillet.
+An arcade-inspired Pac-Man clone built with [Phaser.js](https://phaser.io/) and optimized for smooth web-based play on Raspberry Pi devices.
 
-# Design
+---
 
-4 kanta, hvor du er en farge - kan utvides til andre designer
-powerups til pacman - små 4 kanter som dukker opp som gir deg boost
-speed
-spise de andre
+## 🕹️ Features
 
-3 som jager etter bro
+* **Phaser Engine:** Built with Phaser 3 for responsive 2D rendering, sprite animations, and arc physics.
+* **Classic Gameplay:** Retro maze navigation, dot collecting, power pellets, and ghost AI.
+* **Raspberry Pi Ready:** Optimized to run seamlessly inside Chromium in fullscreen/kiosk mode.
+* **Flexible Input:** Keyboard controls out of the box, with support for USB arcade controllers or web sockets for custom GPIO controls.
 
-TODO
-Musikk
-Karakter design
+---
 
-# TO run the code "run npm run dev"
+## 📋 Requirements
 
-# grid size: 1900x1050 og each square is 50x50 
+To run and host this game locally on your Raspberry Pi (or any machine), you'll need:
+
+* **Node.js & npm** (recommended for local development server)
+* A modern web browser (**Chromium** on Raspberry Pi OS)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/Blazey485/PacMan-RaspberryPI.git](https://github.com/Blazey485/PacMan-RaspberryPI.git)
+cd PacMan-RaspberryPI
+```
+
+##Launch a Local Web Server
+```python3 -m http.server 8080```
+OR 
+``` npm run dev```
+
+🖥️ Running on Raspberry Pi (Arcade / Kiosk Mode)
+
+To run the game automatically on boot in fullscreen kiosk mode on Raspberry Pi OS:
+```chromium-browser --kiosk --noerrdialogs --disable-infobars http://localhost:8080chromium-browser --kiosk --noerrdialogs --disable-infobars http://localhost:8080 ```
+
+controls: 
+**WASD** and **ArrowKeys** 
+also works with a joycon/joystick
 
 
+🛠️ Built With
 
-things we need:
+    Phaser 3 - HTML5 Game Framework
 
-map
+    JavaScript (ES6) / HTML5 / CSS3
 
-
-
-
-
-
-high score/ board. 
-
-og chaos gems for å gjøre sånn at han kan spise eggman 
-
-<<<<<<< HEAD
-
-joysticken bruker en vanlig xbox/ps controller, knapper bruker b0 til b3. 
-=======
-SFX
->>>>>>> fe639bc6c5eb72c663996e9eb7e81c70800dd3ff
