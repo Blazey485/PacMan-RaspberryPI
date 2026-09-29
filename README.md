@@ -30,7 +30,7 @@ git clone [https://github.com/Blazey485/PacMan-RaspberryPI.git](https://github.c
 cd PacMan-RaspberryPI
 ```
 
-####Launch a Local Web Server
+### Launch a Local Web Server
 ```bash
 python3 -m http.server 8080
 ```
